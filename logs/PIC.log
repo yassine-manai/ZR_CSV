@@ -1,0 +1,680 @@
+2024-08-07 14:03:53.745 | INFO     | save_data:Data saved: | main_window.py:254
+2024-08-07 14:04:56.675 | INFO     | update_data_display:Displayed Data: | main_window.py:231
+2024-08-07 14:04:56.676 | INFO     | update_data_display:Season Parker:  | main_window.py:233
+2024-08-07 14:05:00.890 | INFO     | update_data_display:Displayed Data: | main_window.py:231
+2024-08-07 14:05:00.892 | INFO     | update_data_display:Season Parker:  | main_window.py:233
+2024-08-07 14:05:00.893 | INFO     | update_data_display:PMVC:  | main_window.py:233
+2024-08-07 14:05:54.506 | INFO     | update_data_display:Displayed Data: | main_window.py:231
+2024-08-07 14:05:54.510 | INFO     | update_data_display:Season Parker:  | main_window.py:233
+2024-08-07 14:05:54.519 | INFO     | update_data_display:['1029'] | main_window.py:235
+2024-08-07 14:05:54.521 | INFO     | update_data_display:['1029'] | main_window.py:235
+2024-08-07 14:05:54.523 | INFO     | update_data_display:['1029'] | main_window.py:235
+2024-08-07 14:05:54.525 | INFO     | update_data_display:['1029'] | main_window.py:235
+2024-08-07 14:05:54.527 | INFO     | update_data_display:['1029'] | main_window.py:235
+2024-08-07 14:05:54.529 | INFO     | update_data_display:['1029'] | main_window.py:235
+2024-08-07 14:05:54.531 | INFO     | update_data_display:['1029'] | main_window.py:235
+2024-08-07 14:05:54.533 | INFO     | update_data_display:['1029'] | main_window.py:235
+2024-08-07 14:09:17.695 | INFO     | update_data_display:Displayed Data: | main_window.py:231
+2024-08-07 14:09:17.700 | INFO     | update_data_display:Season Parker:  | main_window.py:233
+2024-08-07 14:09:17.702 | INFO     | update_data_display:['04.06.2024 00:00:00'] | main_window.py:235
+2024-08-07 14:09:17.704 | INFO     | update_data_display:['04.06.2024 00:00:00'] | main_window.py:235
+2024-08-07 14:09:17.706 | INFO     | update_data_display:['04.06.2024 00:00:00'] | main_window.py:235
+2024-08-07 14:09:17.709 | INFO     | update_data_display:['04.06.2024 00:00:00'] | main_window.py:235
+2024-08-07 14:09:17.711 | INFO     | update_data_display:['04.06.2024 14:00:00'] | main_window.py:235
+2024-08-07 14:09:17.713 | INFO     | update_data_display:['04.06.2024 14:00:00'] | main_window.py:235
+2024-08-07 14:09:17.715 | INFO     | update_data_display:['04.06.2024 14:00:00'] | main_window.py:235
+2024-08-07 14:09:17.718 | INFO     | update_data_display:['04.06.2024 14:00:00'] | main_window.py:235
+2024-08-07 14:10:20.649 | INFO     | update_data_display:Displayed Data: | main_window.py:231
+2024-08-07 14:10:20.654 | INFO     | update_data_display:Season Parker:  | main_window.py:233
+2024-08-07 14:10:20.656 | INFO     | update_data_display:['04.06.2024 00:00:00'] | main_window.py:235
+2024-08-07 14:10:20.659 | INFO     | update_data_display:['04.06.2024 00:00:00'] | main_window.py:235
+2024-08-07 14:10:20.662 | INFO     | update_data_display:['04.06.2024 00:00:00'] | main_window.py:235
+2024-08-07 14:10:20.664 | INFO     | update_data_display:['04.06.2024 00:00:00'] | main_window.py:235
+2024-08-07 14:10:20.666 | INFO     | update_data_display:['04.06.2024 14:00:00'] | main_window.py:235
+2024-08-07 14:10:20.669 | INFO     | update_data_display:['04.06.2024 14:00:00'] | main_window.py:235
+2024-08-07 14:10:20.671 | INFO     | update_data_display:['04.06.2024 14:00:00'] | main_window.py:235
+2024-08-07 14:10:20.673 | INFO     | update_data_display:['04.06.2024 14:00:00'] | main_window.py:235
+2024-08-07 14:12:37.089 | INFO     | update_data_display:Displayed Data: | main_window.py:231
+2024-08-07 14:12:37.090 | INFO     | update_data_display:Season Parker:  | main_window.py:233
+2024-08-07 14:12:37.091 | INFO     | update_data_display:qsd:  | main_window.py:233
+2024-08-07 14:12:37.091 | INFO     | update_data_display:['04.06.2024 00:00:00', '1029'] | main_window.py:235
+2024-08-07 14:12:37.092 | INFO     | update_data_display:['04.06.2024 00:00:00', '1029'] | main_window.py:235
+2024-08-07 14:12:37.093 | INFO     | update_data_display:['04.06.2024 00:00:00', '1029'] | main_window.py:235
+2024-08-07 14:12:37.093 | INFO     | update_data_display:['04.06.2024 00:00:00', '1029'] | main_window.py:235
+2024-08-07 14:12:37.094 | INFO     | update_data_display:['04.06.2024 14:00:00', '1029'] | main_window.py:235
+2024-08-07 14:12:37.094 | INFO     | update_data_display:['04.06.2024 14:00:00', '1029'] | main_window.py:235
+2024-08-07 14:12:37.095 | INFO     | update_data_display:['04.06.2024 14:00:00', '1029'] | main_window.py:235
+2024-08-07 14:12:37.095 | INFO     | update_data_display:['04.06.2024 14:00:00', '1029'] | main_window.py:235
+2024-08-07 14:12:40.268 | INFO     | update_data_display:Displayed Data: | main_window.py:231
+2024-08-07 14:12:40.270 | INFO     | update_data_display:Season Parker:  | main_window.py:233
+2024-08-07 14:12:40.272 | INFO     | update_data_display:['04.06.2024 00:00:00'] | main_window.py:235
+2024-08-07 14:12:40.273 | INFO     | update_data_display:['04.06.2024 00:00:00'] | main_window.py:235
+2024-08-07 14:12:40.275 | INFO     | update_data_display:['04.06.2024 00:00:00'] | main_window.py:235
+2024-08-07 14:12:40.278 | INFO     | update_data_display:['04.06.2024 00:00:00'] | main_window.py:235
+2024-08-07 14:12:40.279 | INFO     | update_data_display:['04.06.2024 14:00:00'] | main_window.py:235
+2024-08-07 14:12:40.281 | INFO     | update_data_display:['04.06.2024 14:00:00'] | main_window.py:235
+2024-08-07 14:12:40.283 | INFO     | update_data_display:['04.06.2024 14:00:00'] | main_window.py:235
+2024-08-07 14:12:40.286 | INFO     | update_data_display:['04.06.2024 14:00:00'] | main_window.py:235
+2024-08-07 14:13:11.205 | INFO     | update_data_display:Displayed Data: | main_window.py:229
+2024-08-07 14:13:11.205 | INFO     | update_data_display:[] | main_window.py:233
+2024-08-07 14:13:11.206 | INFO     | update_data_display:[] | main_window.py:233
+2024-08-07 14:13:11.207 | INFO     | update_data_display:[] | main_window.py:233
+2024-08-07 14:13:11.207 | INFO     | update_data_display:[] | main_window.py:233
+2024-08-07 14:13:11.207 | INFO     | update_data_display:[] | main_window.py:233
+2024-08-07 14:13:11.207 | INFO     | update_data_display:[] | main_window.py:233
+2024-08-07 14:13:11.207 | INFO     | update_data_display:[] | main_window.py:233
+2024-08-07 14:13:11.208 | INFO     | update_data_display:[] | main_window.py:233
+2024-08-07 14:13:15.963 | INFO     | update_data_display:Displayed Data: | main_window.py:229
+2024-08-07 14:13:15.966 | INFO     | update_data_display:[] | main_window.py:233
+2024-08-07 14:13:15.967 | INFO     | update_data_display:[] | main_window.py:233
+2024-08-07 14:13:15.969 | INFO     | update_data_display:[] | main_window.py:233
+2024-08-07 14:13:15.970 | INFO     | update_data_display:[] | main_window.py:233
+2024-08-07 14:13:15.972 | INFO     | update_data_display:[] | main_window.py:233
+2024-08-07 14:13:15.974 | INFO     | update_data_display:[] | main_window.py:233
+2024-08-07 14:13:15.976 | INFO     | update_data_display:[] | main_window.py:233
+2024-08-07 14:13:15.978 | INFO     | update_data_display:[] | main_window.py:233
+2024-08-07 14:13:22.153 | INFO     | update_data_display:Displayed Data: | main_window.py:229
+2024-08-07 14:13:22.153 | INFO     | update_data_display:[] | main_window.py:233
+2024-08-07 14:13:22.154 | INFO     | update_data_display:[] | main_window.py:233
+2024-08-07 14:13:22.154 | INFO     | update_data_display:[] | main_window.py:233
+2024-08-07 14:13:22.154 | INFO     | update_data_display:[] | main_window.py:233
+2024-08-07 14:13:22.155 | INFO     | update_data_display:[] | main_window.py:233
+2024-08-07 14:13:22.155 | INFO     | update_data_display:[] | main_window.py:233
+2024-08-07 14:13:22.156 | INFO     | update_data_display:[] | main_window.py:233
+2024-08-07 14:13:22.156 | INFO     | update_data_display:[] | main_window.py:233
+2024-08-07 14:13:27.256 | INFO     | save_data:Data saved: | main_window.py:251
+2024-08-07 14:13:32.575 | INFO     | on_template_change:Template ID: qs | main_window.py:237
+2024-08-07 14:13:32.633 | INFO     | on_template_change:Template ID: qs | main_window.py:237
+2024-08-07 14:13:33.957 | INFO     | on_template_change:Template ID: q | main_window.py:237
+2024-08-07 14:13:34.150 | INFO     | on_template_change:Template ID:  | main_window.py:237
+2024-08-07 14:13:34.329 | INFO     | on_template_change:Template ID:  | main_window.py:237
+2024-08-07 14:13:34.448 | INFO     | on_template_change:Template ID:  | main_window.py:237
+2024-08-07 14:13:34.581 | INFO     | on_template_change:Template ID:  | main_window.py:237
+2024-08-07 14:13:34.703 | INFO     | on_template_change:Template ID:  | main_window.py:237
+2024-08-07 14:32:30.157 | INFO     | update_data_display:Displayed Data: | main_window.py:233
+2024-08-07 14:32:30.157 | INFO     | update_data_display:[] | main_window.py:237
+2024-08-07 14:32:30.158 | INFO     | update_data_display:[] | main_window.py:237
+2024-08-07 14:32:30.158 | INFO     | update_data_display:[] | main_window.py:237
+2024-08-07 14:32:30.158 | INFO     | update_data_display:[] | main_window.py:237
+2024-08-07 14:32:30.158 | INFO     | update_data_display:[] | main_window.py:237
+2024-08-07 14:32:30.159 | INFO     | update_data_display:[] | main_window.py:237
+2024-08-07 14:32:30.159 | INFO     | update_data_display:[] | main_window.py:237
+2024-08-07 14:32:30.159 | INFO     | update_data_display:[] | main_window.py:237
+2024-08-07 14:32:33.970 | INFO     | update_data_display:Displayed Data: | main_window.py:233
+2024-08-07 14:32:33.971 | INFO     | update_data_display:Park:  | main_window.py:235
+2024-08-07 14:32:33.973 | INFO     | update_data_display:['1029'] | main_window.py:237
+2024-08-07 14:32:33.975 | INFO     | update_data_display:['1029'] | main_window.py:237
+2024-08-07 14:32:33.976 | INFO     | update_data_display:['1029'] | main_window.py:237
+2024-08-07 14:32:33.979 | INFO     | update_data_display:['1029'] | main_window.py:237
+2024-08-07 14:32:33.981 | INFO     | update_data_display:['1029'] | main_window.py:237
+2024-08-07 14:32:33.982 | INFO     | update_data_display:['1029'] | main_window.py:237
+2024-08-07 14:32:33.984 | INFO     | update_data_display:['1029'] | main_window.py:237
+2024-08-07 14:32:33.986 | INFO     | update_data_display:['1029'] | main_window.py:237
+2024-08-07 14:32:36.305 | INFO     | update_data_display:Displayed Data: | main_window.py:233
+2024-08-07 14:32:36.307 | INFO     | update_data_display:[] | main_window.py:237
+2024-08-07 14:32:36.308 | INFO     | update_data_display:[] | main_window.py:237
+2024-08-07 14:32:36.310 | INFO     | update_data_display:[] | main_window.py:237
+2024-08-07 14:32:36.311 | INFO     | update_data_display:[] | main_window.py:237
+2024-08-07 14:32:36.313 | INFO     | update_data_display:[] | main_window.py:237
+2024-08-07 14:32:36.315 | INFO     | update_data_display:[] | main_window.py:237
+2024-08-07 14:32:36.316 | INFO     | update_data_display:[] | main_window.py:237
+2024-08-07 14:32:36.318 | INFO     | update_data_display:[] | main_window.py:237
+2024-08-07 14:39:06.517 | INFO     | update_data_display:Displayed Data Columns and Locations: | main_window.py:248
+2024-08-07 14:39:06.517 | INFO     | update_data_display:Row 1: Indexes 1 with values [] | main_window.py:252
+2024-08-07 14:39:06.518 | INFO     | update_data_display:Row 2: Indexes 2 with values [] | main_window.py:252
+2024-08-07 14:39:06.518 | INFO     | update_data_display:Row 3: Indexes 3 with values [] | main_window.py:252
+2024-08-07 14:39:06.518 | INFO     | update_data_display:Row 4: Indexes 4 with values [] | main_window.py:252
+2024-08-07 14:39:06.518 | INFO     | update_data_display:Row 5: Indexes 5 with values [] | main_window.py:252
+2024-08-07 14:39:06.519 | INFO     | update_data_display:Row 6: Indexes 6 with values [] | main_window.py:252
+2024-08-07 14:39:06.519 | INFO     | update_data_display:Row 7: Indexes 7 with values [] | main_window.py:252
+2024-08-07 14:39:06.519 | INFO     | update_data_display:Row 8: Indexes 8 with values [] | main_window.py:252
+2024-08-07 14:39:11.677 | INFO     | update_data_display:Displayed Data Columns and Locations: | main_window.py:248
+2024-08-07 14:39:11.679 | INFO     | update_data_display:Index 0: Column 1 | main_window.py:250
+2024-08-07 14:39:11.681 | INFO     | update_data_display:Row 1: Indexes 1 with values ['05.06.2024'] | main_window.py:252
+2024-08-07 14:39:11.683 | INFO     | update_data_display:Row 2: Indexes 2 with values ['05.06.2024'] | main_window.py:252
+2024-08-07 14:39:11.684 | INFO     | update_data_display:Row 3: Indexes 3 with values ['05.06.2024'] | main_window.py:252
+2024-08-07 14:39:11.686 | INFO     | update_data_display:Row 4: Indexes 4 with values ['05.06.2024'] | main_window.py:252
+2024-08-07 14:39:11.688 | INFO     | update_data_display:Row 5: Indexes 5 with values ['05.06.2024'] | main_window.py:252
+2024-08-07 14:39:11.690 | INFO     | update_data_display:Row 6: Indexes 6 with values ['05.06.2024'] | main_window.py:252
+2024-08-07 14:39:11.692 | INFO     | update_data_display:Row 7: Indexes 7 with values ['05.06.2024'] | main_window.py:252
+2024-08-07 14:39:11.694 | INFO     | update_data_display:Row 8: Indexes 8 with values ['05.06.2024'] | main_window.py:252
+2024-08-07 14:39:16.077 | INFO     | update_data_display:Displayed Data Columns and Locations: | main_window.py:248
+2024-08-07 14:39:16.079 | INFO     | update_data_display:Index 0: Column 1 | main_window.py:250
+2024-08-07 14:39:16.080 | INFO     | update_data_display:Index 1: Column 2 | main_window.py:250
+2024-08-07 14:39:16.082 | INFO     | update_data_display:Row 1: Indexes 1 with values ['05.06.2024', '3'] | main_window.py:252
+2024-08-07 14:39:16.084 | INFO     | update_data_display:Row 2: Indexes 2 with values ['05.06.2024', '3'] | main_window.py:252
+2024-08-07 14:39:16.086 | INFO     | update_data_display:Row 3: Indexes 3 with values ['05.06.2024', '3'] | main_window.py:252
+2024-08-07 14:39:16.088 | INFO     | update_data_display:Row 4: Indexes 4 with values ['05.06.2024', '3'] | main_window.py:252
+2024-08-07 14:39:16.090 | INFO     | update_data_display:Row 5: Indexes 5 with values ['05.06.2024', '2'] | main_window.py:252
+2024-08-07 14:39:16.092 | INFO     | update_data_display:Row 6: Indexes 6 with values ['05.06.2024', '2'] | main_window.py:252
+2024-08-07 14:39:16.095 | INFO     | update_data_display:Row 7: Indexes 7 with values ['05.06.2024', '2'] | main_window.py:252
+2024-08-07 14:39:16.097 | INFO     | update_data_display:Row 8: Indexes 8 with values ['05.06.2024', '2'] | main_window.py:252
+2024-08-07 14:39:28.282 | INFO     | update_data_display:Displayed Data Columns and Locations: | main_window.py:248
+2024-08-07 14:39:28.284 | INFO     | update_data_display:Index 0: Column 1 | main_window.py:250
+2024-08-07 14:39:28.286 | INFO     | update_data_display:Index 1: Column 2 | main_window.py:250
+2024-08-07 14:39:28.288 | INFO     | update_data_display:Index 2: Column 3 | main_window.py:250
+2024-08-07 14:39:28.289 | INFO     | update_data_display:Row 1: Indexes 1 with values ['05.06.2024', '3', '1067'] | main_window.py:252
+2024-08-07 14:39:28.291 | INFO     | update_data_display:Row 2: Indexes 2 with values ['05.06.2024', '3', '1067'] | main_window.py:252
+2024-08-07 14:39:28.293 | INFO     | update_data_display:Row 3: Indexes 3 with values ['05.06.2024', '3', '1067'] | main_window.py:252
+2024-08-07 14:39:28.294 | INFO     | update_data_display:Row 4: Indexes 4 with values ['05.06.2024', '3', '1067'] | main_window.py:252
+2024-08-07 14:39:28.296 | INFO     | update_data_display:Row 5: Indexes 5 with values ['05.06.2024', '2', '1068'] | main_window.py:252
+2024-08-07 14:39:28.298 | INFO     | update_data_display:Row 6: Indexes 6 with values ['05.06.2024', '2', '1068'] | main_window.py:252
+2024-08-07 14:39:28.300 | INFO     | update_data_display:Row 7: Indexes 7 with values ['05.06.2024', '2', '1068'] | main_window.py:252
+2024-08-07 14:39:28.302 | INFO     | update_data_display:Row 8: Indexes 8 with values ['05.06.2024', '2', '1068'] | main_window.py:252
+2024-08-07 14:39:42.967 | INFO     | update_data_display:Displayed Data Columns and Locations: | main_window.py:248
+2024-08-07 14:39:42.969 | INFO     | update_data_display:Index 0: Column 1 | main_window.py:250
+2024-08-07 14:39:42.971 | INFO     | update_data_display:Index 1: Column 2 | main_window.py:250
+2024-08-07 14:39:42.972 | INFO     | update_data_display:Index 2: Column 3 | main_window.py:250
+2024-08-07 14:39:42.974 | INFO     | update_data_display:Index 3: Column 4 | main_window.py:250
+2024-08-07 14:39:42.975 | INFO     | update_data_display:Row 1: Indexes 1 with values ['05.06.2024', '3', '1067', '04.06.2024'] | main_window.py:252
+2024-08-07 14:39:42.977 | INFO     | update_data_display:Row 2: Indexes 2 with values ['05.06.2024', '3', '1067', '04.06.2024'] | main_window.py:252
+2024-08-07 14:39:42.979 | INFO     | update_data_display:Row 3: Indexes 3 with values ['05.06.2024', '3', '1067', '04.06.2024'] | main_window.py:252
+2024-08-07 14:39:42.981 | INFO     | update_data_display:Row 4: Indexes 4 with values ['05.06.2024', '3', '1067', '04.06.2024'] | main_window.py:252
+2024-08-07 14:39:42.983 | INFO     | update_data_display:Row 5: Indexes 5 with values ['05.06.2024', '2', '1068', '04.06.2024'] | main_window.py:252
+2024-08-07 14:39:42.985 | INFO     | update_data_display:Row 6: Indexes 6 with values ['05.06.2024', '2', '1068', '04.06.2024'] | main_window.py:252
+2024-08-07 14:39:42.986 | INFO     | update_data_display:Row 7: Indexes 7 with values ['05.06.2024', '2', '1068', '04.06.2024'] | main_window.py:252
+2024-08-07 14:39:42.988 | INFO     | update_data_display:Row 8: Indexes 8 with values ['05.06.2024', '2', '1068', '04.06.2024'] | main_window.py:252
+2024-08-07 14:40:24.759 | INFO     | update_data_display:Displayed Data Columns and Locations: | main_window.py:248
+2024-08-07 14:40:24.762 | INFO     | update_data_display:Index 0: Column 1 | main_window.py:250
+2024-08-07 14:40:24.764 | INFO     | update_data_display:Index 1: Column 2 | main_window.py:250
+2024-08-07 14:40:24.765 | INFO     | update_data_display:Index 2: Column 3 | main_window.py:250
+2024-08-07 14:40:24.767 | INFO     | update_data_display:Index 3: Column 4 | main_window.py:250
+2024-08-07 14:40:24.769 | INFO     | update_data_display:Row 1: Indexes 1 with values ['05.06.2024', '3', '1067', '04.06.2024'] | main_window.py:252
+2024-08-07 14:40:24.771 | INFO     | update_data_display:Row 2: Indexes 2 with values ['05.06.2024', '3', '1067', '04.06.2024'] | main_window.py:252
+2024-08-07 14:40:24.774 | INFO     | update_data_display:Row 3: Indexes 3 with values ['05.06.2024', '3', '1067', '04.06.2024'] | main_window.py:252
+2024-08-07 14:40:24.776 | INFO     | update_data_display:Row 4: Indexes 4 with values ['05.06.2024', '3', '1067', '04.06.2024'] | main_window.py:252
+2024-08-07 14:40:24.778 | INFO     | update_data_display:Row 5: Indexes 5 with values ['05.06.2024', '2', '1068', '04.06.2024'] | main_window.py:252
+2024-08-07 14:40:24.780 | INFO     | update_data_display:Row 6: Indexes 6 with values ['05.06.2024', '2', '1068', '04.06.2024'] | main_window.py:252
+2024-08-07 14:40:24.782 | INFO     | update_data_display:Row 7: Indexes 7 with values ['05.06.2024', '2', '1068', '04.06.2024'] | main_window.py:252
+2024-08-07 14:40:24.785 | INFO     | update_data_display:Row 8: Indexes 8 with values ['05.06.2024', '2', '1068', '04.06.2024'] | main_window.py:252
+2024-08-07 14:40:28.134 | INFO     | update_data_display:Displayed Data Columns and Locations: | main_window.py:248
+2024-08-07 14:40:28.135 | INFO     | update_data_display:Index 0: Column 1 | main_window.py:250
+2024-08-07 14:40:28.135 | INFO     | update_data_display:Index 1: Column 2 | main_window.py:250
+2024-08-07 14:40:28.136 | INFO     | update_data_display:Index 2: Column 3 | main_window.py:250
+2024-08-07 14:40:28.137 | INFO     | update_data_display:Row 1: Indexes 1 with values ['05.06.2024', '3', '1067'] | main_window.py:252
+2024-08-07 14:40:28.138 | INFO     | update_data_display:Row 2: Indexes 2 with values ['05.06.2024', '3', '1067'] | main_window.py:252
+2024-08-07 14:40:28.138 | INFO     | update_data_display:Row 3: Indexes 3 with values ['05.06.2024', '3', '1067'] | main_window.py:252
+2024-08-07 14:40:28.139 | INFO     | update_data_display:Row 4: Indexes 4 with values ['05.06.2024', '3', '1067'] | main_window.py:252
+2024-08-07 14:40:28.139 | INFO     | update_data_display:Row 5: Indexes 5 with values ['05.06.2024', '2', '1068'] | main_window.py:252
+2024-08-07 14:40:28.140 | INFO     | update_data_display:Row 6: Indexes 6 with values ['05.06.2024', '2', '1068'] | main_window.py:252
+2024-08-07 14:40:28.141 | INFO     | update_data_display:Row 7: Indexes 7 with values ['05.06.2024', '2', '1068'] | main_window.py:252
+2024-08-07 14:40:28.142 | INFO     | update_data_display:Row 8: Indexes 8 with values ['05.06.2024', '2', '1068'] | main_window.py:252
+2024-08-07 14:40:30.406 | INFO     | update_data_display:Displayed Data Columns and Locations: | main_window.py:248
+2024-08-07 14:40:30.407 | INFO     | update_data_display:Index 0: Column 1 | main_window.py:250
+2024-08-07 14:40:30.408 | INFO     | update_data_display:Index 1: Column 2 | main_window.py:250
+2024-08-07 14:40:30.410 | INFO     | update_data_display:Row 1: Indexes 1 with values ['05.06.2024', '3'] | main_window.py:252
+2024-08-07 14:40:30.411 | INFO     | update_data_display:Row 2: Indexes 2 with values ['05.06.2024', '3'] | main_window.py:252
+2024-08-07 14:40:30.411 | INFO     | update_data_display:Row 3: Indexes 3 with values ['05.06.2024', '3'] | main_window.py:252
+2024-08-07 14:40:30.412 | INFO     | update_data_display:Row 4: Indexes 4 with values ['05.06.2024', '3'] | main_window.py:252
+2024-08-07 14:40:30.413 | INFO     | update_data_display:Row 5: Indexes 5 with values ['05.06.2024', '2'] | main_window.py:252
+2024-08-07 14:40:30.414 | INFO     | update_data_display:Row 6: Indexes 6 with values ['05.06.2024', '2'] | main_window.py:252
+2024-08-07 14:40:30.415 | INFO     | update_data_display:Row 7: Indexes 7 with values ['05.06.2024', '2'] | main_window.py:252
+2024-08-07 14:40:30.416 | INFO     | update_data_display:Row 8: Indexes 8 with values ['05.06.2024', '2'] | main_window.py:252
+2024-08-07 14:40:31.378 | INFO     | update_data_display:Displayed Data Columns and Locations: | main_window.py:248
+2024-08-07 14:40:31.380 | INFO     | update_data_display:Index 0: Column 1 | main_window.py:250
+2024-08-07 14:40:31.382 | INFO     | update_data_display:Row 1: Indexes 1 with values ['05.06.2024'] | main_window.py:252
+2024-08-07 14:40:31.383 | INFO     | update_data_display:Row 2: Indexes 2 with values ['05.06.2024'] | main_window.py:252
+2024-08-07 14:40:31.385 | INFO     | update_data_display:Row 3: Indexes 3 with values ['05.06.2024'] | main_window.py:252
+2024-08-07 14:40:31.386 | INFO     | update_data_display:Row 4: Indexes 4 with values ['05.06.2024'] | main_window.py:252
+2024-08-07 14:40:31.388 | INFO     | update_data_display:Row 5: Indexes 5 with values ['05.06.2024'] | main_window.py:252
+2024-08-07 14:40:31.390 | INFO     | update_data_display:Row 6: Indexes 6 with values ['05.06.2024'] | main_window.py:252
+2024-08-07 14:40:31.392 | INFO     | update_data_display:Row 7: Indexes 7 with values ['05.06.2024'] | main_window.py:252
+2024-08-07 14:40:31.393 | INFO     | update_data_display:Row 8: Indexes 8 with values ['05.06.2024'] | main_window.py:252
+2024-08-07 14:40:33.388 | INFO     | update_data_display:Displayed Data Columns and Locations: | main_window.py:248
+2024-08-07 14:40:33.390 | INFO     | update_data_display:Row 1: Indexes 1 with values [] | main_window.py:252
+2024-08-07 14:40:33.392 | INFO     | update_data_display:Row 2: Indexes 2 with values [] | main_window.py:252
+2024-08-07 14:40:33.394 | INFO     | update_data_display:Row 3: Indexes 3 with values [] | main_window.py:252
+2024-08-07 14:40:33.396 | INFO     | update_data_display:Row 4: Indexes 4 with values [] | main_window.py:252
+2024-08-07 14:40:33.397 | INFO     | update_data_display:Row 5: Indexes 5 with values [] | main_window.py:252
+2024-08-07 14:40:33.399 | INFO     | update_data_display:Row 6: Indexes 6 with values [] | main_window.py:252
+2024-08-07 14:40:33.401 | INFO     | update_data_display:Row 7: Indexes 7 with values [] | main_window.py:252
+2024-08-07 14:40:33.403 | INFO     | update_data_display:Row 8: Indexes 8 with values [] | main_window.py:252
+2024-08-07 15:18:10.623 | INFO     | update_data_display:Displayed Data: | main_window.py:231
+2024-08-07 15:18:10.625 | INFO     | update_data_display:Season Parker:  | main_window.py:233
+2024-08-07 15:18:10.626 | INFO     | update_data_display:['05.06.2024'] | main_window.py:236
+2024-08-07 15:18:10.628 | INFO     | update_data_display:['05.06.2024'] | main_window.py:236
+2024-08-07 15:18:13.198 | INFO     | update_data_display:Displayed Data: | main_window.py:231
+2024-08-07 15:18:13.200 | INFO     | update_data_display:Season Parker:  | main_window.py:233
+2024-08-07 15:18:13.202 | INFO     | update_data_display:PMVC:  | main_window.py:233
+2024-08-07 15:18:13.204 | INFO     | update_data_display:['05.06.2024', '05.06.2024'] | main_window.py:236
+2024-08-07 15:18:13.206 | INFO     | update_data_display:['05.06.2024', '05.06.2024'] | main_window.py:236
+2024-08-07 15:18:17.954 | INFO     | update_data_display:Displayed Data: | main_window.py:231
+2024-08-07 15:18:17.956 | INFO     | update_data_display:Season Parker:  | main_window.py:233
+2024-08-07 15:18:17.957 | INFO     | update_data_display:PMVC:  | main_window.py:233
+2024-08-07 15:18:17.959 | INFO     | update_data_display:['05.06.2024', '1067'] | main_window.py:236
+2024-08-07 15:18:17.961 | INFO     | update_data_display:['05.06.2024', '1067'] | main_window.py:236
+2024-08-07 15:20:25.907 | INFO     | update_data_display:Displayed Data: | main_window.py:226
+2024-08-07 15:20:25.908 | INFO     | update_data_display:Season Parker: Column index 0 | main_window.py:228
+2024-08-07 15:20:25.908 | INFO     | update_data_display:PMVC: Column index 0 | main_window.py:228
+2024-08-07 15:20:25.909 | INFO     | update_data_display:First Name: Column index 0 | main_window.py:228
+2024-08-07 15:20:25.909 | INFO     | update_data_display:LastName: Column index 0 | main_window.py:228
+2024-08-07 15:20:25.909 | INFO     | update_data_display:Lpn: Column index 0 | main_window.py:228
+2024-08-07 15:20:25.910 | INFO     | update_data_display:tkep: Column index 0 | main_window.py:228
+2024-08-07 15:20:25.910 | INFO     | update_data_display:Licence Plate: Column index 0 | main_window.py:228
+2024-08-07 15:20:25.910 | INFO     | update_data_display:EPAN: Column index 0 | main_window.py:228
+2024-08-07 15:20:25.911 | INFO     | update_data_display:PTcpt_name: Column index 0 | main_window.py:228
+2024-08-07 15:20:25.911 | INFO     | update_data_display:ptcpt id: Column index 0 | main_window.py:228
+2024-08-07 15:20:25.911 | INFO     | update_data_display:['05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024'] | main_window.py:231
+2024-08-07 15:20:25.912 | INFO     | update_data_display:['05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024'] | main_window.py:231
+2024-08-07 15:20:36.318 | INFO     | update_data_display:Displayed Data: | main_window.py:226
+2024-08-07 15:20:36.321 | INFO     | update_data_display:Season Parker: Column index 1 | main_window.py:228
+2024-08-07 15:20:36.323 | INFO     | update_data_display:PMVC: Column index 0 | main_window.py:228
+2024-08-07 15:20:36.325 | INFO     | update_data_display:First Name: Column index 0 | main_window.py:228
+2024-08-07 15:20:36.327 | INFO     | update_data_display:LastName: Column index 0 | main_window.py:228
+2024-08-07 15:20:36.329 | INFO     | update_data_display:Lpn: Column index 0 | main_window.py:228
+2024-08-07 15:20:36.331 | INFO     | update_data_display:tkep: Column index 0 | main_window.py:228
+2024-08-07 15:20:36.333 | INFO     | update_data_display:Licence Plate: Column index 0 | main_window.py:228
+2024-08-07 15:20:36.335 | INFO     | update_data_display:EPAN: Column index 0 | main_window.py:228
+2024-08-07 15:20:36.337 | INFO     | update_data_display:PTcpt_name: Column index 0 | main_window.py:228
+2024-08-07 15:20:36.339 | INFO     | update_data_display:ptcpt id: Column index 0 | main_window.py:228
+2024-08-07 15:20:36.341 | INFO     | update_data_display:['1029', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024'] | main_window.py:231
+2024-08-07 15:20:36.343 | INFO     | update_data_display:['1029', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024'] | main_window.py:231
+2024-08-07 15:20:42.144 | INFO     | update_data_display:Displayed Data: | main_window.py:226
+2024-08-07 15:20:42.146 | INFO     | update_data_display:Season Parker: Column index 4 | main_window.py:228
+2024-08-07 15:20:42.148 | INFO     | update_data_display:PMVC: Column index 0 | main_window.py:228
+2024-08-07 15:20:42.150 | INFO     | update_data_display:First Name: Column index 0 | main_window.py:228
+2024-08-07 15:20:42.152 | INFO     | update_data_display:LastName: Column index 0 | main_window.py:228
+2024-08-07 15:20:42.153 | INFO     | update_data_display:Lpn: Column index 0 | main_window.py:228
+2024-08-07 15:20:42.155 | INFO     | update_data_display:tkep: Column index 0 | main_window.py:228
+2024-08-07 15:20:42.157 | INFO     | update_data_display:Licence Plate: Column index 0 | main_window.py:228
+2024-08-07 15:20:42.159 | INFO     | update_data_display:EPAN: Column index 0 | main_window.py:228
+2024-08-07 15:20:42.161 | INFO     | update_data_display:PTcpt_name: Column index 0 | main_window.py:228
+2024-08-07 15:20:42.163 | INFO     | update_data_display:ptcpt id: Column index 0 | main_window.py:228
+2024-08-07 15:20:42.165 | INFO     | update_data_display:['3', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024'] | main_window.py:231
+2024-08-07 15:20:42.169 | INFO     | update_data_display:['3', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024'] | main_window.py:231
+2024-08-07 15:20:44.489 | INFO     | update_data_display:Displayed Data: | main_window.py:226
+2024-08-07 15:20:44.490 | INFO     | update_data_display:Season Parker: Column index 3 | main_window.py:228
+2024-08-07 15:20:44.492 | INFO     | update_data_display:PMVC: Column index 0 | main_window.py:228
+2024-08-07 15:20:44.494 | INFO     | update_data_display:First Name: Column index 0 | main_window.py:228
+2024-08-07 15:20:44.496 | INFO     | update_data_display:LastName: Column index 0 | main_window.py:228
+2024-08-07 15:20:44.498 | INFO     | update_data_display:Lpn: Column index 0 | main_window.py:228
+2024-08-07 15:20:44.500 | INFO     | update_data_display:tkep: Column index 0 | main_window.py:228
+2024-08-07 15:20:44.501 | INFO     | update_data_display:Licence Plate: Column index 0 | main_window.py:228
+2024-08-07 15:20:44.503 | INFO     | update_data_display:EPAN: Column index 0 | main_window.py:228
+2024-08-07 15:20:44.505 | INFO     | update_data_display:PTcpt_name: Column index 0 | main_window.py:228
+2024-08-07 15:20:44.507 | INFO     | update_data_display:ptcpt id: Column index 0 | main_window.py:228
+2024-08-07 15:20:44.508 | INFO     | update_data_display:['04.06.2024 00:00:00', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024'] | main_window.py:231
+2024-08-07 15:20:44.511 | INFO     | update_data_display:['04.06.2024 00:00:00', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024'] | main_window.py:231
+2024-08-07 15:20:46.391 | INFO     | update_data_display:Displayed Data: | main_window.py:226
+2024-08-07 15:20:46.393 | INFO     | update_data_display:Season Parker: Column index 1 | main_window.py:228
+2024-08-07 15:20:46.394 | INFO     | update_data_display:PMVC: Column index 0 | main_window.py:228
+2024-08-07 15:20:46.396 | INFO     | update_data_display:First Name: Column index 0 | main_window.py:228
+2024-08-07 15:20:46.398 | INFO     | update_data_display:LastName: Column index 0 | main_window.py:228
+2024-08-07 15:20:46.400 | INFO     | update_data_display:Lpn: Column index 0 | main_window.py:228
+2024-08-07 15:20:46.402 | INFO     | update_data_display:tkep: Column index 0 | main_window.py:228
+2024-08-07 15:20:46.403 | INFO     | update_data_display:Licence Plate: Column index 0 | main_window.py:228
+2024-08-07 15:20:46.405 | INFO     | update_data_display:EPAN: Column index 0 | main_window.py:228
+2024-08-07 15:20:46.407 | INFO     | update_data_display:PTcpt_name: Column index 0 | main_window.py:228
+2024-08-07 15:20:46.409 | INFO     | update_data_display:ptcpt id: Column index 0 | main_window.py:228
+2024-08-07 15:20:46.411 | INFO     | update_data_display:['1029', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024'] | main_window.py:231
+2024-08-07 15:20:46.413 | INFO     | update_data_display:['1029', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024'] | main_window.py:231
+2024-08-07 15:20:47.966 | INFO     | update_data_display:Displayed Data: | main_window.py:226
+2024-08-07 15:20:47.968 | INFO     | update_data_display:Season Parker: Column index 0 | main_window.py:228
+2024-08-07 15:20:47.969 | INFO     | update_data_display:PMVC: Column index 0 | main_window.py:228
+2024-08-07 15:20:47.971 | INFO     | update_data_display:First Name: Column index 0 | main_window.py:228
+2024-08-07 15:20:47.973 | INFO     | update_data_display:LastName: Column index 0 | main_window.py:228
+2024-08-07 15:20:47.974 | INFO     | update_data_display:Lpn: Column index 0 | main_window.py:228
+2024-08-07 15:20:47.976 | INFO     | update_data_display:tkep: Column index 0 | main_window.py:228
+2024-08-07 15:20:47.978 | INFO     | update_data_display:Licence Plate: Column index 0 | main_window.py:228
+2024-08-07 15:20:47.980 | INFO     | update_data_display:EPAN: Column index 0 | main_window.py:228
+2024-08-07 15:20:47.982 | INFO     | update_data_display:PTcpt_name: Column index 0 | main_window.py:228
+2024-08-07 15:20:47.984 | INFO     | update_data_display:ptcpt id: Column index 0 | main_window.py:228
+2024-08-07 15:20:47.985 | INFO     | update_data_display:['05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024'] | main_window.py:231
+2024-08-07 15:20:47.987 | INFO     | update_data_display:['05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024'] | main_window.py:231
+2024-08-07 15:20:49.657 | INFO     | update_data_display:Displayed Data: | main_window.py:226
+2024-08-07 15:20:49.658 | INFO     | update_data_display:Season Parker: Column index 2 | main_window.py:228
+2024-08-07 15:20:49.660 | INFO     | update_data_display:PMVC: Column index 0 | main_window.py:228
+2024-08-07 15:20:49.662 | INFO     | update_data_display:First Name: Column index 0 | main_window.py:228
+2024-08-07 15:20:49.663 | INFO     | update_data_display:LastName: Column index 0 | main_window.py:228
+2024-08-07 15:20:49.665 | INFO     | update_data_display:Lpn: Column index 0 | main_window.py:228
+2024-08-07 15:20:49.667 | INFO     | update_data_display:tkep: Column index 0 | main_window.py:228
+2024-08-07 15:20:49.669 | INFO     | update_data_display:Licence Plate: Column index 0 | main_window.py:228
+2024-08-07 15:20:49.671 | INFO     | update_data_display:EPAN: Column index 0 | main_window.py:228
+2024-08-07 15:20:49.672 | INFO     | update_data_display:PTcpt_name: Column index 0 | main_window.py:228
+2024-08-07 15:20:49.674 | INFO     | update_data_display:ptcpt id: Column index 0 | main_window.py:228
+2024-08-07 15:20:49.676 | INFO     | update_data_display:['1067', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024'] | main_window.py:231
+2024-08-07 15:20:49.678 | INFO     | update_data_display:['1067', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024'] | main_window.py:231
+2024-08-07 15:20:51.989 | INFO     | update_data_display:Displayed Data: | main_window.py:226
+2024-08-07 15:20:51.991 | INFO     | update_data_display:Season Parker: Column index 3 | main_window.py:228
+2024-08-07 15:20:51.993 | INFO     | update_data_display:PMVC: Column index 0 | main_window.py:228
+2024-08-07 15:20:51.994 | INFO     | update_data_display:First Name: Column index 0 | main_window.py:228
+2024-08-07 15:20:51.996 | INFO     | update_data_display:LastName: Column index 0 | main_window.py:228
+2024-08-07 15:20:51.998 | INFO     | update_data_display:Lpn: Column index 0 | main_window.py:228
+2024-08-07 15:20:51.999 | INFO     | update_data_display:tkep: Column index 0 | main_window.py:228
+2024-08-07 15:20:52.001 | INFO     | update_data_display:Licence Plate: Column index 0 | main_window.py:228
+2024-08-07 15:20:52.003 | INFO     | update_data_display:EPAN: Column index 0 | main_window.py:228
+2024-08-07 15:20:52.006 | INFO     | update_data_display:PTcpt_name: Column index 0 | main_window.py:228
+2024-08-07 15:20:52.008 | INFO     | update_data_display:ptcpt id: Column index 0 | main_window.py:228
+2024-08-07 15:20:52.009 | INFO     | update_data_display:['04.06.2024 00:00:00', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024'] | main_window.py:231
+2024-08-07 15:20:52.012 | INFO     | update_data_display:['04.06.2024 00:00:00', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024', '05.06.2024'] | main_window.py:231
+2024-08-07 15:23:03.096 | INFO     | update_data_display:Selected Columns: | main_window.py:219
+2024-08-07 15:23:03.097 | INFO     | update_data_display:Season Parker: Column index 0 | main_window.py:221
+2024-08-07 15:23:03.098 | INFO     | update_data_display:PMVC: Column index 0 | main_window.py:221
+2024-08-07 15:23:03.098 | INFO     | update_data_display:First Name: Column index 0 | main_window.py:221
+2024-08-07 15:23:03.099 | INFO     | update_data_display:LastName: Column index 0 | main_window.py:221
+2024-08-07 15:23:03.099 | INFO     | update_data_display:Lpn: Column index 0 | main_window.py:221
+2024-08-07 15:23:03.100 | INFO     | update_data_display:tkep: Column index 0 | main_window.py:221
+2024-08-07 15:23:03.100 | INFO     | update_data_display:Licence Plate: Column index 0 | main_window.py:221
+2024-08-07 15:23:03.101 | INFO     | update_data_display:EPAN: Column index 0 | main_window.py:221
+2024-08-07 15:23:03.101 | INFO     | update_data_display:PTcpt_name: Column index 0 | main_window.py:221
+2024-08-07 15:23:03.102 | INFO     | update_data_display:ptcpt id: Column index 0 | main_window.py:221
+2024-08-07 15:23:08.621 | INFO     | update_data_display:Selected Columns: | main_window.py:219
+2024-08-07 15:23:08.622 | INFO     | update_data_display:Season Parker: Column index 1 | main_window.py:221
+2024-08-07 15:23:08.623 | INFO     | update_data_display:PMVC: Column index 0 | main_window.py:221
+2024-08-07 15:23:08.623 | INFO     | update_data_display:First Name: Column index 0 | main_window.py:221
+2024-08-07 15:23:08.624 | INFO     | update_data_display:LastName: Column index 0 | main_window.py:221
+2024-08-07 15:23:08.625 | INFO     | update_data_display:Lpn: Column index 0 | main_window.py:221
+2024-08-07 15:23:08.625 | INFO     | update_data_display:tkep: Column index 0 | main_window.py:221
+2024-08-07 15:23:08.626 | INFO     | update_data_display:Licence Plate: Column index 0 | main_window.py:221
+2024-08-07 15:23:08.627 | INFO     | update_data_display:EPAN: Column index 0 | main_window.py:221
+2024-08-07 15:23:08.627 | INFO     | update_data_display:PTcpt_name: Column index 0 | main_window.py:221
+2024-08-07 15:23:08.628 | INFO     | update_data_display:ptcpt id: Column index 0 | main_window.py:221
+2024-08-07 15:23:11.290 | INFO     | update_data_display:Selected Columns: | main_window.py:219
+2024-08-07 15:23:11.293 | INFO     | update_data_display:Season Parker: Column index 1 | main_window.py:221
+2024-08-07 15:23:11.295 | INFO     | update_data_display:PMVC: Column index 5 | main_window.py:221
+2024-08-07 15:23:11.297 | INFO     | update_data_display:First Name: Column index 0 | main_window.py:221
+2024-08-07 15:23:11.299 | INFO     | update_data_display:LastName: Column index 0 | main_window.py:221
+2024-08-07 15:23:11.301 | INFO     | update_data_display:Lpn: Column index 0 | main_window.py:221
+2024-08-07 15:23:11.303 | INFO     | update_data_display:tkep: Column index 0 | main_window.py:221
+2024-08-07 15:23:11.305 | INFO     | update_data_display:Licence Plate: Column index 0 | main_window.py:221
+2024-08-07 15:23:11.307 | INFO     | update_data_display:EPAN: Column index 0 | main_window.py:221
+2024-08-07 15:23:11.310 | INFO     | update_data_display:PTcpt_name: Column index 0 | main_window.py:221
+2024-08-07 15:23:11.312 | INFO     | update_data_display:ptcpt id: Column index 0 | main_window.py:221
+2024-08-07 15:23:31.509 | INFO     | update_data_display:Selected Columns: | main_window.py:219
+2024-08-07 15:23:31.511 | INFO     | update_data_display:Season Parker: Column index 1 | main_window.py:221
+2024-08-07 15:23:31.513 | INFO     | update_data_display:PMVC: Column index 5 | main_window.py:221
+2024-08-07 15:23:31.515 | INFO     | update_data_display:First Name: Column index 9 | main_window.py:221
+2024-08-07 15:23:31.516 | INFO     | update_data_display:LastName: Column index 0 | main_window.py:221
+2024-08-07 15:23:31.518 | INFO     | update_data_display:Lpn: Column index 0 | main_window.py:221
+2024-08-07 15:23:31.520 | INFO     | update_data_display:tkep: Column index 0 | main_window.py:221
+2024-08-07 15:23:31.521 | INFO     | update_data_display:Licence Plate: Column index 0 | main_window.py:221
+2024-08-07 15:23:31.523 | INFO     | update_data_display:EPAN: Column index 0 | main_window.py:221
+2024-08-07 15:23:31.525 | INFO     | update_data_display:PTcpt_name: Column index 0 | main_window.py:221
+2024-08-07 15:23:31.527 | INFO     | update_data_display:ptcpt id: Column index 0 | main_window.py:221
+2024-08-07 15:25:27.467 | INFO     | update_data_display:Selected Columns: | main_window.py:219
+2024-08-07 15:25:27.470 | INFO     | update_data_display:Season Parker: Column index 1 | main_window.py:221
+2024-08-07 15:25:27.472 | INFO     | update_data_display:PMVC: Column index 6 | main_window.py:221
+2024-08-07 15:25:27.474 | INFO     | update_data_display:First Name: Column index 9 | main_window.py:221
+2024-08-07 15:25:27.476 | INFO     | update_data_display:LastName: Column index 0 | main_window.py:221
+2024-08-07 15:25:27.478 | INFO     | update_data_display:Lpn: Column index 0 | main_window.py:221
+2024-08-07 15:25:27.481 | INFO     | update_data_display:tkep: Column index 0 | main_window.py:221
+2024-08-07 15:25:27.483 | INFO     | update_data_display:Licence Plate: Column index 0 | main_window.py:221
+2024-08-07 15:25:27.485 | INFO     | update_data_display:EPAN: Column index 0 | main_window.py:221
+2024-08-07 15:25:27.487 | INFO     | update_data_display:PTcpt_name: Column index 0 | main_window.py:221
+2024-08-07 15:25:27.489 | INFO     | update_data_display:ptcpt id: Column index 0 | main_window.py:221
+2024-08-07 15:25:38.884 | INFO     | update_data_display:Selected Columns: | main_window.py:219
+2024-08-07 15:25:38.886 | INFO     | update_data_display:Season Parker: Column index 1 | main_window.py:221
+2024-08-07 15:25:38.888 | INFO     | update_data_display:PMVC: Column index 1 | main_window.py:221
+2024-08-07 15:25:38.890 | INFO     | update_data_display:First Name: Column index 9 | main_window.py:221
+2024-08-07 15:25:38.892 | INFO     | update_data_display:LastName: Column index 0 | main_window.py:221
+2024-08-07 15:25:38.894 | INFO     | update_data_display:Lpn: Column index 0 | main_window.py:221
+2024-08-07 15:25:38.896 | INFO     | update_data_display:tkep: Column index 0 | main_window.py:221
+2024-08-07 15:25:38.898 | INFO     | update_data_display:Licence Plate: Column index 0 | main_window.py:221
+2024-08-07 15:25:38.900 | INFO     | update_data_display:EPAN: Column index 0 | main_window.py:221
+2024-08-07 15:25:38.902 | INFO     | update_data_display:PTcpt_name: Column index 0 | main_window.py:221
+2024-08-07 15:25:38.904 | INFO     | update_data_display:ptcpt id: Column index 0 | main_window.py:221
+2024-08-07 15:25:42.478 | INFO     | update_data_display:Selected Columns: | main_window.py:219
+2024-08-07 15:25:42.480 | INFO     | update_data_display:Season Parker: Column index 1 | main_window.py:221
+2024-08-07 15:25:42.482 | INFO     | update_data_display:PMVC: Column index 6 | main_window.py:221
+2024-08-07 15:25:42.485 | INFO     | update_data_display:First Name: Column index 9 | main_window.py:221
+2024-08-07 15:25:42.487 | INFO     | update_data_display:LastName: Column index 0 | main_window.py:221
+2024-08-07 15:25:42.489 | INFO     | update_data_display:Lpn: Column index 0 | main_window.py:221
+2024-08-07 15:25:42.491 | INFO     | update_data_display:tkep: Column index 0 | main_window.py:221
+2024-08-07 15:25:42.493 | INFO     | update_data_display:Licence Plate: Column index 0 | main_window.py:221
+2024-08-07 15:25:42.495 | INFO     | update_data_display:EPAN: Column index 0 | main_window.py:221
+2024-08-07 15:25:42.497 | INFO     | update_data_display:PTcpt_name: Column index 0 | main_window.py:221
+2024-08-07 15:25:42.499 | INFO     | update_data_display:ptcpt id: Column index 0 | main_window.py:221
+2024-08-07 15:25:54.978 | INFO     | save_data:Data saved: | main_window.py:243
+2024-08-07 15:26:39.001 | INFO     | update_data_display:Selected Columns: | main_window.py:219
+2024-08-07 15:26:39.001 | INFO     | update_data_display:Season Parker: Column index 0 | main_window.py:221
+2024-08-07 15:26:39.003 | INFO     | update_data_display:PMVC: Column index 0 | main_window.py:221
+2024-08-07 15:26:39.003 | INFO     | update_data_display:First Name: Column index 0 | main_window.py:221
+2024-08-07 15:26:39.003 | INFO     | update_data_display:LastName: Column index 0 | main_window.py:221
+2024-08-07 15:26:39.003 | INFO     | update_data_display:Lpn: Column index 0 | main_window.py:221
+2024-08-07 15:26:39.003 | INFO     | update_data_display:tkep: Column index 0 | main_window.py:221
+2024-08-07 15:26:39.004 | INFO     | update_data_display:Licence Plate: Column index 0 | main_window.py:221
+2024-08-07 15:26:39.004 | INFO     | update_data_display:EPAN: Column index 0 | main_window.py:221
+2024-08-07 15:26:39.004 | INFO     | update_data_display:PTcpt_name: Column index 0 | main_window.py:221
+2024-08-07 15:26:39.005 | INFO     | update_data_display:ptcpt id: Column index 0 | main_window.py:221
+2024-08-07 15:26:44.834 | INFO     | update_data_display:Selected Columns: | main_window.py:219
+2024-08-07 15:26:44.837 | INFO     | update_data_display:Season Parker: Column index 1 | main_window.py:221
+2024-08-07 15:26:44.838 | INFO     | update_data_display:PMVC: Column index 0 | main_window.py:221
+2024-08-07 15:26:44.840 | INFO     | update_data_display:First Name: Column index 0 | main_window.py:221
+2024-08-07 15:26:44.842 | INFO     | update_data_display:LastName: Column index 0 | main_window.py:221
+2024-08-07 15:26:44.844 | INFO     | update_data_display:Lpn: Column index 0 | main_window.py:221
+2024-08-07 15:26:44.846 | INFO     | update_data_display:tkep: Column index 0 | main_window.py:221
+2024-08-07 15:26:44.847 | INFO     | update_data_display:Licence Plate: Column index 0 | main_window.py:221
+2024-08-07 15:26:44.850 | INFO     | update_data_display:EPAN: Column index 0 | main_window.py:221
+2024-08-07 15:26:44.852 | INFO     | update_data_display:PTcpt_name: Column index 0 | main_window.py:221
+2024-08-07 15:26:44.854 | INFO     | update_data_display:ptcpt id: Column index 0 | main_window.py:221
+2024-08-07 15:26:47.566 | INFO     | update_data_display:Selected Columns: | main_window.py:219
+2024-08-07 15:26:47.569 | INFO     | update_data_display:Season Parker: Column index 1 | main_window.py:221
+2024-08-07 15:26:47.571 | INFO     | update_data_display:PMVC: Column index 3 | main_window.py:221
+2024-08-07 15:26:47.574 | INFO     | update_data_display:First Name: Column index 0 | main_window.py:221
+2024-08-07 15:26:47.577 | INFO     | update_data_display:LastName: Column index 0 | main_window.py:221
+2024-08-07 15:26:47.580 | INFO     | update_data_display:Lpn: Column index 0 | main_window.py:221
+2024-08-07 15:26:47.582 | INFO     | update_data_display:tkep: Column index 0 | main_window.py:221
+2024-08-07 15:26:47.584 | INFO     | update_data_display:Licence Plate: Column index 0 | main_window.py:221
+2024-08-07 15:26:47.586 | INFO     | update_data_display:EPAN: Column index 0 | main_window.py:221
+2024-08-07 15:26:47.587 | INFO     | update_data_display:PTcpt_name: Column index 0 | main_window.py:221
+2024-08-07 15:26:47.589 | INFO     | update_data_display:ptcpt id: Column index 0 | main_window.py:221
+2024-08-07 15:26:51.626 | INFO     | save_data:Data saved: {'template_id': '', 'file_path': 'C:/Users/yassi/Desktop/AsteroIdea/Procounter_Spec/DEP/merged_data - Copie.csv', 'no_headers': False, 'mandatory_fields': [('Season Parker', 1), ('PMVC', 3), ('First Name', 0), ('LastName', 0), ('Lpn', 0), ('tkep', 0), ('Licence Plate', 0), ('EPAN', 0), ('PTcpt_name', 0), ('ptcpt id', 0)], 'optional_fields': [], 'zr_ip': 'ZR IP', 'zr_port': 'ZR Port', 'username': 'Username', 'password': 'Password'} | main_window.py:243
+2024-08-07 15:45:23.131 | INFO     | update_data_display:Selected Columns: | main_window.py:219
+2024-08-07 15:45:23.149 | INFO     | update_data_display:Season Parker: Column index 1 | main_window.py:221
+2024-08-07 15:45:23.151 | INFO     | update_data_display:PMVC: Column index 3 | main_window.py:221
+2024-08-07 15:45:23.152 | INFO     | update_data_display:First Name: Column index 0 | main_window.py:221
+2024-08-07 15:45:23.153 | INFO     | update_data_display:LastName: Column index 0 | main_window.py:221
+2024-08-07 15:45:23.155 | INFO     | update_data_display:Lpn: Column index 0 | main_window.py:221
+2024-08-07 15:45:23.156 | INFO     | update_data_display:tkep: Column index 0 | main_window.py:221
+2024-08-07 15:45:23.157 | INFO     | update_data_display:Licence Plate: Column index 1 | main_window.py:221
+2024-08-07 15:45:23.158 | INFO     | update_data_display:EPAN: Column index 0 | main_window.py:221
+2024-08-07 15:45:23.159 | INFO     | update_data_display:PTcpt_name: Column index 0 | main_window.py:221
+2024-08-07 15:45:23.160 | INFO     | update_data_display:ptcpt id: Column index 0 | main_window.py:221
+2024-08-07 15:45:26.302 | INFO     | update_data_display:Selected Columns: | main_window.py:219
+2024-08-07 15:45:26.304 | INFO     | update_data_display:Season Parker: Column index 1 | main_window.py:221
+2024-08-07 15:45:26.306 | INFO     | update_data_display:PMVC: Column index 3 | main_window.py:221
+2024-08-07 15:45:26.308 | INFO     | update_data_display:First Name: Column index 0 | main_window.py:221
+2024-08-07 15:45:26.309 | INFO     | update_data_display:LastName: Column index 0 | main_window.py:221
+2024-08-07 15:45:26.312 | INFO     | update_data_display:Lpn: Column index 0 | main_window.py:221
+2024-08-07 15:45:26.313 | INFO     | update_data_display:tkep: Column index 0 | main_window.py:221
+2024-08-07 15:45:26.315 | INFO     | update_data_display:Licence Plate: Column index 9 | main_window.py:221
+2024-08-07 15:45:26.317 | INFO     | update_data_display:EPAN: Column index 0 | main_window.py:221
+2024-08-07 15:45:26.319 | INFO     | update_data_display:PTcpt_name: Column index 0 | main_window.py:221
+2024-08-07 15:45:26.321 | INFO     | update_data_display:ptcpt id: Column index 0 | main_window.py:221
+2024-08-07 15:45:58.596 | INFO     | update_data_display:Selected Columns: | main_window.py:219
+2024-08-07 15:45:58.597 | INFO     | update_data_display:Season Parker: Column index 1 | main_window.py:221
+2024-08-07 15:45:58.598 | INFO     | update_data_display:PMVC: Column index 3 | main_window.py:221
+2024-08-07 15:45:58.599 | INFO     | update_data_display:First Name: Column index 0 | main_window.py:221
+2024-08-07 15:45:58.599 | INFO     | update_data_display:LastName: Column index 0 | main_window.py:221
+2024-08-07 15:45:58.600 | INFO     | update_data_display:Lpn: Column index 0 | main_window.py:221
+2024-08-07 15:45:58.600 | INFO     | update_data_display:tkep: Column index 0 | main_window.py:221
+2024-08-07 15:45:58.601 | INFO     | update_data_display:Licence Plate: Column index 9 | main_window.py:221
+2024-08-07 15:45:58.601 | INFO     | update_data_display:EPAN: Column index 0 | main_window.py:221
+2024-08-07 15:45:58.602 | INFO     | update_data_display:PTcpt_name: Column index 0 | main_window.py:221
+2024-08-07 15:45:58.602 | INFO     | update_data_display:ptcpt id: Column index 0 | main_window.py:221
+2024-08-07 15:45:58.603 | INFO     | update_data_display:az: Column index 1 | main_window.py:221
+2024-08-07 15:46:03.885 | INFO     | update_data_display:Selected Columns: | main_window.py:219
+2024-08-07 15:46:03.887 | INFO     | update_data_display:Season Parker: Column index 1 | main_window.py:221
+2024-08-07 15:46:03.888 | INFO     | update_data_display:PMVC: Column index 3 | main_window.py:221
+2024-08-07 15:46:03.889 | INFO     | update_data_display:First Name: Column index 0 | main_window.py:221
+2024-08-07 15:46:03.891 | INFO     | update_data_display:LastName: Column index 0 | main_window.py:221
+2024-08-07 15:46:03.892 | INFO     | update_data_display:Lpn: Column index 0 | main_window.py:221
+2024-08-07 15:46:03.893 | INFO     | update_data_display:tkep: Column index 0 | main_window.py:221
+2024-08-07 15:46:03.895 | INFO     | update_data_display:Licence Plate: Column index 9 | main_window.py:221
+2024-08-07 15:46:03.896 | INFO     | update_data_display:EPAN: Column index 0 | main_window.py:221
+2024-08-07 15:46:03.898 | INFO     | update_data_display:PTcpt_name: Column index 0 | main_window.py:221
+2024-08-07 15:46:03.899 | INFO     | update_data_display:ptcpt id: Column index 0 | main_window.py:221
+2024-08-07 15:46:28.188 | INFO     | update_data_display:Selected Columns: | main_window.py:219
+2024-08-07 15:46:28.191 | INFO     | update_data_display:Season Parker: Column index 0 | main_window.py:221
+2024-08-07 15:46:28.193 | INFO     | update_data_display:PMVC: Column index 3 | main_window.py:221
+2024-08-07 15:46:28.195 | INFO     | update_data_display:First Name: Column index 0 | main_window.py:221
+2024-08-07 15:46:28.196 | INFO     | update_data_display:LastName: Column index 0 | main_window.py:221
+2024-08-07 15:46:28.198 | INFO     | update_data_display:Lpn: Column index 0 | main_window.py:221
+2024-08-07 15:46:28.200 | INFO     | update_data_display:tkep: Column index 0 | main_window.py:221
+2024-08-07 15:46:28.202 | INFO     | update_data_display:Licence Plate: Column index 9 | main_window.py:221
+2024-08-07 15:46:28.204 | INFO     | update_data_display:EPAN: Column index 0 | main_window.py:221
+2024-08-07 15:46:28.206 | INFO     | update_data_display:PTcpt_name: Column index 0 | main_window.py:221
+2024-08-07 15:46:28.208 | INFO     | update_data_display:ptcpt id: Column index 0 | main_window.py:221
+2024-08-07 15:46:31.637 | INFO     | update_data_display:Selected Columns: | main_window.py:219
+2024-08-07 15:46:31.639 | INFO     | update_data_display:Season Parker: Column index 1 | main_window.py:221
+2024-08-07 15:46:31.641 | INFO     | update_data_display:PMVC: Column index 3 | main_window.py:221
+2024-08-07 15:46:31.642 | INFO     | update_data_display:First Name: Column index 0 | main_window.py:221
+2024-08-07 15:46:31.644 | INFO     | update_data_display:LastName: Column index 0 | main_window.py:221
+2024-08-07 15:46:31.646 | INFO     | update_data_display:Lpn: Column index 0 | main_window.py:221
+2024-08-07 15:46:31.648 | INFO     | update_data_display:tkep: Column index 0 | main_window.py:221
+2024-08-07 15:46:31.650 | INFO     | update_data_display:Licence Plate: Column index 9 | main_window.py:221
+2024-08-07 15:46:31.652 | INFO     | update_data_display:EPAN: Column index 0 | main_window.py:221
+2024-08-07 15:46:31.654 | INFO     | update_data_display:PTcpt_name: Column index 0 | main_window.py:221
+2024-08-07 15:46:31.656 | INFO     | update_data_display:ptcpt id: Column index 0 | main_window.py:221
+2024-08-07 15:46:33.500 | INFO     | update_data_display:Selected Columns: | main_window.py:219
+2024-08-07 15:46:33.500 | INFO     | update_data_display:Season Parker: Column index 2 | main_window.py:221
+2024-08-07 15:46:33.501 | INFO     | update_data_display:PMVC: Column index 3 | main_window.py:221
+2024-08-07 15:46:33.501 | INFO     | update_data_display:First Name: Column index 0 | main_window.py:221
+2024-08-07 15:46:33.501 | INFO     | update_data_display:LastName: Column index 0 | main_window.py:221
+2024-08-07 15:46:33.502 | INFO     | update_data_display:Lpn: Column index 0 | main_window.py:221
+2024-08-07 15:46:33.502 | INFO     | update_data_display:tkep: Column index 0 | main_window.py:221
+2024-08-07 15:46:33.502 | INFO     | update_data_display:Licence Plate: Column index 9 | main_window.py:221
+2024-08-07 15:46:33.503 | INFO     | update_data_display:EPAN: Column index 0 | main_window.py:221
+2024-08-07 15:46:33.503 | INFO     | update_data_display:PTcpt_name: Column index 0 | main_window.py:221
+2024-08-07 15:46:33.504 | INFO     | update_data_display:ptcpt id: Column index 0 | main_window.py:221
+2024-08-07 15:46:36.203 | INFO     | update_data_display:Selected Columns: | main_window.py:219
+2024-08-07 15:46:36.205 | INFO     | update_data_display:Season Parker: Column index 2 | main_window.py:221
+2024-08-07 15:46:36.207 | INFO     | update_data_display:PMVC: Column index 4 | main_window.py:221
+2024-08-07 15:46:36.209 | INFO     | update_data_display:First Name: Column index 0 | main_window.py:221
+2024-08-07 15:46:36.210 | INFO     | update_data_display:LastName: Column index 0 | main_window.py:221
+2024-08-07 15:46:36.212 | INFO     | update_data_display:Lpn: Column index 0 | main_window.py:221
+2024-08-07 15:46:36.214 | INFO     | update_data_display:tkep: Column index 0 | main_window.py:221
+2024-08-07 15:46:36.216 | INFO     | update_data_display:Licence Plate: Column index 9 | main_window.py:221
+2024-08-07 15:46:36.218 | INFO     | update_data_display:EPAN: Column index 0 | main_window.py:221
+2024-08-07 15:46:36.220 | INFO     | update_data_display:PTcpt_name: Column index 0 | main_window.py:221
+2024-08-07 15:46:36.222 | INFO     | update_data_display:ptcpt id: Column index 0 | main_window.py:221
+2024-08-07 15:46:38.217 | INFO     | update_data_display:Selected Columns: | main_window.py:219
+2024-08-07 15:46:38.219 | INFO     | update_data_display:Season Parker: Column index 2 | main_window.py:221
+2024-08-07 15:46:38.221 | INFO     | update_data_display:PMVC: Column index 4 | main_window.py:221
+2024-08-07 15:46:38.223 | INFO     | update_data_display:First Name: Column index 6 | main_window.py:221
+2024-08-07 15:46:38.225 | INFO     | update_data_display:LastName: Column index 0 | main_window.py:221
+2024-08-07 15:46:38.227 | INFO     | update_data_display:Lpn: Column index 0 | main_window.py:221
+2024-08-07 15:46:38.229 | INFO     | update_data_display:tkep: Column index 0 | main_window.py:221
+2024-08-07 15:46:38.230 | INFO     | update_data_display:Licence Plate: Column index 9 | main_window.py:221
+2024-08-07 15:46:38.231 | INFO     | update_data_display:EPAN: Column index 0 | main_window.py:221
+2024-08-07 15:46:38.232 | INFO     | update_data_display:PTcpt_name: Column index 0 | main_window.py:221
+2024-08-07 15:46:38.234 | INFO     | update_data_display:ptcpt id: Column index 0 | main_window.py:221
+2024-08-07 15:46:40.120 | INFO     | update_data_display:Selected Columns: | main_window.py:219
+2024-08-07 15:46:40.122 | INFO     | update_data_display:Season Parker: Column index 2 | main_window.py:221
+2024-08-07 15:46:40.124 | INFO     | update_data_display:PMVC: Column index 4 | main_window.py:221
+2024-08-07 15:46:40.126 | INFO     | update_data_display:First Name: Column index 6 | main_window.py:221
+2024-08-07 15:46:40.128 | INFO     | update_data_display:LastName: Column index 7 | main_window.py:221
+2024-08-07 15:46:40.130 | INFO     | update_data_display:Lpn: Column index 0 | main_window.py:221
+2024-08-07 15:46:40.132 | INFO     | update_data_display:tkep: Column index 0 | main_window.py:221
+2024-08-07 15:46:40.133 | INFO     | update_data_display:Licence Plate: Column index 9 | main_window.py:221
+2024-08-07 15:46:40.135 | INFO     | update_data_display:EPAN: Column index 0 | main_window.py:221
+2024-08-07 15:46:40.137 | INFO     | update_data_display:PTcpt_name: Column index 0 | main_window.py:221
+2024-08-07 15:46:40.140 | INFO     | update_data_display:ptcpt id: Column index 0 | main_window.py:221
+2024-08-07 15:46:42.028 | INFO     | update_data_display:Selected Columns: | main_window.py:219
+2024-08-07 15:46:42.030 | INFO     | update_data_display:Season Parker: Column index 2 | main_window.py:221
+2024-08-07 15:46:42.032 | INFO     | update_data_display:PMVC: Column index 4 | main_window.py:221
+2024-08-07 15:46:42.033 | INFO     | update_data_display:First Name: Column index 6 | main_window.py:221
+2024-08-07 15:46:42.035 | INFO     | update_data_display:LastName: Column index 7 | main_window.py:221
+2024-08-07 15:46:42.036 | INFO     | update_data_display:Lpn: Column index 7 | main_window.py:221
+2024-08-07 15:46:42.038 | INFO     | update_data_display:tkep: Column index 0 | main_window.py:221
+2024-08-07 15:46:42.040 | INFO     | update_data_display:Licence Plate: Column index 9 | main_window.py:221
+2024-08-07 15:46:42.041 | INFO     | update_data_display:EPAN: Column index 0 | main_window.py:221
+2024-08-07 15:46:42.043 | INFO     | update_data_display:PTcpt_name: Column index 0 | main_window.py:221
+2024-08-07 15:46:42.045 | INFO     | update_data_display:ptcpt id: Column index 0 | main_window.py:221
+2024-08-07 15:46:47.285 | INFO     | update_data_display:Selected Columns: | main_window.py:219
+2024-08-07 15:46:47.287 | INFO     | update_data_display:Season Parker: Column index 2 | main_window.py:221
+2024-08-07 15:46:47.289 | INFO     | update_data_display:PMVC: Column index 4 | main_window.py:221
+2024-08-07 15:46:47.291 | INFO     | update_data_display:First Name: Column index 6 | main_window.py:221
+2024-08-07 15:46:47.293 | INFO     | update_data_display:LastName: Column index 7 | main_window.py:221
+2024-08-07 15:46:47.296 | INFO     | update_data_display:Lpn: Column index 7 | main_window.py:221
+2024-08-07 15:46:47.298 | INFO     | update_data_display:tkep: Column index 5 | main_window.py:221
+2024-08-07 15:46:47.300 | INFO     | update_data_display:Licence Plate: Column index 9 | main_window.py:221
+2024-08-07 15:46:47.302 | INFO     | update_data_display:EPAN: Column index 0 | main_window.py:221
+2024-08-07 15:46:47.304 | INFO     | update_data_display:PTcpt_name: Column index 0 | main_window.py:221
+2024-08-07 15:46:47.306 | INFO     | update_data_display:ptcpt id: Column index 0 | main_window.py:221
+2024-08-07 15:46:50.240 | INFO     | update_data_display:Selected Columns: | main_window.py:219
+2024-08-07 15:46:50.241 | INFO     | update_data_display:Season Parker: Column index 2 | main_window.py:221
+2024-08-07 15:46:50.243 | INFO     | update_data_display:PMVC: Column index 4 | main_window.py:221
+2024-08-07 15:46:50.244 | INFO     | update_data_display:First Name: Column index 6 | main_window.py:221
+2024-08-07 15:46:50.245 | INFO     | update_data_display:LastName: Column index 7 | main_window.py:221
+2024-08-07 15:46:50.247 | INFO     | update_data_display:Lpn: Column index 7 | main_window.py:221
+2024-08-07 15:46:50.248 | INFO     | update_data_display:tkep: Column index 5 | main_window.py:221
+2024-08-07 15:46:50.249 | INFO     | update_data_display:Licence Plate: Column index 9 | main_window.py:221
+2024-08-07 15:46:50.251 | INFO     | update_data_display:EPAN: Column index 6 | main_window.py:221
+2024-08-07 15:46:50.253 | INFO     | update_data_display:PTcpt_name: Column index 0 | main_window.py:221
+2024-08-07 15:46:50.254 | INFO     | update_data_display:ptcpt id: Column index 0 | main_window.py:221
+2024-08-07 15:46:52.138 | INFO     | update_data_display:Selected Columns: | main_window.py:219
+2024-08-07 15:46:52.139 | INFO     | update_data_display:Season Parker: Column index 2 | main_window.py:221
+2024-08-07 15:46:52.139 | INFO     | update_data_display:PMVC: Column index 4 | main_window.py:221
+2024-08-07 15:46:52.140 | INFO     | update_data_display:First Name: Column index 6 | main_window.py:221
+2024-08-07 15:46:52.140 | INFO     | update_data_display:LastName: Column index 7 | main_window.py:221
+2024-08-07 15:46:52.141 | INFO     | update_data_display:Lpn: Column index 7 | main_window.py:221
+2024-08-07 15:46:52.141 | INFO     | update_data_display:tkep: Column index 5 | main_window.py:221
+2024-08-07 15:46:52.141 | INFO     | update_data_display:Licence Plate: Column index 9 | main_window.py:221
+2024-08-07 15:46:52.142 | INFO     | update_data_display:EPAN: Column index 6 | main_window.py:221
+2024-08-07 15:46:52.142 | INFO     | update_data_display:PTcpt_name: Column index 6 | main_window.py:221
+2024-08-07 15:46:52.142 | INFO     | update_data_display:ptcpt id: Column index 0 | main_window.py:221
+2024-08-07 15:46:54.297 | INFO     | update_data_display:Selected Columns: | main_window.py:219
+2024-08-07 15:46:54.300 | INFO     | update_data_display:Season Parker: Column index 2 | main_window.py:221
+2024-08-07 15:46:54.301 | INFO     | update_data_display:PMVC: Column index 4 | main_window.py:221
+2024-08-07 15:46:54.303 | INFO     | update_data_display:First Name: Column index 6 | main_window.py:221
+2024-08-07 15:46:54.305 | INFO     | update_data_display:LastName: Column index 7 | main_window.py:221
+2024-08-07 15:46:54.307 | INFO     | update_data_display:Lpn: Column index 7 | main_window.py:221
+2024-08-07 15:46:54.309 | INFO     | update_data_display:tkep: Column index 5 | main_window.py:221
+2024-08-07 15:46:54.311 | INFO     | update_data_display:Licence Plate: Column index 9 | main_window.py:221
+2024-08-07 15:46:54.313 | INFO     | update_data_display:EPAN: Column index 6 | main_window.py:221
+2024-08-07 15:46:54.315 | INFO     | update_data_display:PTcpt_name: Column index 6 | main_window.py:221
+2024-08-07 15:46:54.317 | INFO     | update_data_display:ptcpt id: Column index 5 | main_window.py:221
+2024-08-07 15:47:06.412 | INFO     | update_data_display:Selected Columns: | main_window.py:219
+2024-08-07 15:47:06.414 | INFO     | update_data_display:Season Parker: Column index 0 | main_window.py:221
+2024-08-07 15:47:06.415 | INFO     | update_data_display:PMVC: Column index 4 | main_window.py:221
+2024-08-07 15:47:06.417 | INFO     | update_data_display:First Name: Column index 6 | main_window.py:221
+2024-08-07 15:47:06.420 | INFO     | update_data_display:LastName: Column index 7 | main_window.py:221
+2024-08-07 15:47:06.420 | INFO     | update_data_display:Lpn: Column index 7 | main_window.py:221
+2024-08-07 15:47:06.422 | INFO     | update_data_display:tkep: Column index 5 | main_window.py:221
+2024-08-07 15:47:06.424 | INFO     | update_data_display:Licence Plate: Column index 9 | main_window.py:221
+2024-08-07 15:47:06.426 | INFO     | update_data_display:EPAN: Column index 6 | main_window.py:221
+2024-08-07 15:47:06.428 | INFO     | update_data_display:PTcpt_name: Column index 6 | main_window.py:221
+2024-08-07 15:47:06.431 | INFO     | update_data_display:ptcpt id: Column index 5 | main_window.py:221
+2024-08-07 15:47:09.063 | INFO     | update_data_display:Selected Columns: | main_window.py:219
+2024-08-07 15:47:09.065 | INFO     | update_data_display:Season Parker: Column index 2 | main_window.py:221
+2024-08-07 15:47:09.067 | INFO     | update_data_display:PMVC: Column index 4 | main_window.py:221
+2024-08-07 15:47:09.069 | INFO     | update_data_display:First Name: Column index 6 | main_window.py:221
+2024-08-07 15:47:09.071 | INFO     | update_data_display:LastName: Column index 7 | main_window.py:221
+2024-08-07 15:47:09.072 | INFO     | update_data_display:Lpn: Column index 7 | main_window.py:221
+2024-08-07 15:47:09.074 | INFO     | update_data_display:tkep: Column index 5 | main_window.py:221
+2024-08-07 15:47:09.076 | INFO     | update_data_display:Licence Plate: Column index 9 | main_window.py:221
+2024-08-07 15:47:09.077 | INFO     | update_data_display:EPAN: Column index 6 | main_window.py:221
+2024-08-07 15:47:09.079 | INFO     | update_data_display:PTcpt_name: Column index 6 | main_window.py:221
+2024-08-07 15:47:09.081 | INFO     | update_data_display:ptcpt id: Column index 5 | main_window.py:221
+2024-08-07 15:48:53.221 | INFO     | update_data_display:Selected Columns: | main_window.py:219
+2024-08-07 15:48:53.226 | INFO     | update_data_display:Season Parker: Column index 2 | main_window.py:221
+2024-08-07 15:48:53.228 | INFO     | update_data_display:PMVC: Column index 4 | main_window.py:221
+2024-08-07 15:48:53.230 | INFO     | update_data_display:First Name: Column index 6 | main_window.py:221
+2024-08-07 15:48:53.232 | INFO     | update_data_display:LastName: Column index 1 | main_window.py:221
+2024-08-07 15:48:53.233 | INFO     | update_data_display:Lpn: Column index 7 | main_window.py:221
+2024-08-07 15:48:53.235 | INFO     | update_data_display:tkep: Column index 5 | main_window.py:221
+2024-08-07 15:48:53.237 | INFO     | update_data_display:Licence Plate: Column index 9 | main_window.py:221
+2024-08-07 15:48:53.239 | INFO     | update_data_display:EPAN: Column index 6 | main_window.py:221
+2024-08-07 15:48:53.240 | INFO     | update_data_display:PTcpt_name: Column index 6 | main_window.py:221
+2024-08-07 15:48:53.242 | INFO     | update_data_display:ptcpt id: Column index 5 | main_window.py:221
+2024-08-07 15:48:55.004 | INFO     | update_data_display:Selected Columns: | main_window.py:219
+2024-08-07 15:48:55.006 | INFO     | update_data_display:Season Parker: Column index 2 | main_window.py:221
+2024-08-07 15:48:55.008 | INFO     | update_data_display:PMVC: Column index 4 | main_window.py:221
+2024-08-07 15:48:55.010 | INFO     | update_data_display:First Name: Column index 6 | main_window.py:221
+2024-08-07 15:48:55.012 | INFO     | update_data_display:LastName: Column index 3 | main_window.py:221
+2024-08-07 15:48:55.015 | INFO     | update_data_display:Lpn: Column index 7 | main_window.py:221
+2024-08-07 15:48:55.017 | INFO     | update_data_display:tkep: Column index 5 | main_window.py:221
+2024-08-07 15:48:55.020 | INFO     | update_data_display:Licence Plate: Column index 9 | main_window.py:221
+2024-08-07 15:48:55.022 | INFO     | update_data_display:EPAN: Column index 6 | main_window.py:221
+2024-08-07 15:48:55.024 | INFO     | update_data_display:PTcpt_name: Column index 6 | main_window.py:221
+2024-08-07 15:48:55.026 | INFO     | update_data_display:ptcpt id: Column index 5 | main_window.py:221
+2024-08-07 15:51:44.239 | INFO     | save_data:Data saved: {'template_id': '', 'file_path': 'C:/Users/yassi/Desktop/AsteroIdea/Procounter_Spec/DEP/merged_data - Copie.csv', 'no_headers': True, 'mandatory_fields': [('Season Parker', 2), ('PMVC', 4), ('First Name', 6), ('LastName', 3), ('Lpn', 7), ('tkep', 5), ('Licence Plate', 9), ('EPAN', 6), ('PTcpt_name', 6), ('ptcpt id', 5)], 'optional_fields': [], 'zr_ip': '127.0.0.1', 'zr_port': '8544', 'username': '4', 'password': '4711'} | main_window.py:243
+2024-08-07 16:06:55.967 | INFO     | save_data:Data saved: {'template_id': '', 'file_path': '', 'no_headers': False, 'mandatory_fields': [], 'optional_fields': [], 'zr_ip': 'ZR IP', 'zr_port': 'ZR Port', 'username': 'Username', 'password': 'Password'} | main_window.py:199
+2024-08-07 16:08:47.380 | INFO     | save_data:Data saved: {'template_id': '', 'file_path': 'C:/Users/yassi/Desktop/AsteroIdea/Procounter_Spec/DEP/merged_data - Copie.csv', 'no_headers': False, 'mandatory_fields': [('Season Parker', 2), ('PMVC', 4), ('First Name', 2), ('LastName', 0), ('Lpn', 0), ('tkep', 0), ('Licence Plate', 0), ('EPAN', 0), ('PTcpt_name', 2), ('ptcpt id', 0)], 'optional_fields': [], 'zr_ip': 'ZR IP', 'zr_port': 'ZR Port', 'username': 'Username', 'password': 'Password'} | main_window.py:199
+2024-08-07 16:14:33.544 | INFO     | save_data:Data saved: {'template_id': '', 'file_path': 'C:/Users/yassi/Desktop/AsteroIdea/Procounter_Spec/DEP/merged_data - Copie.csv', 'no_headers': False, 'mandatory_fields': [('Season Parker', 4), ('PMVC', 4), ('First Name', 2), ('LastName', 0), ('Lpn', 0), ('tkep', 0), ('Licence Plate', 0), ('EPAN', 0), ('PTcpt_name', 2), ('ptcpt id', 0)], 'optional_fields': [], 'zr_ip': 'ZR IP', 'zr_port': 'ZR Port', 'username': 'Username', 'password': 'Password'} | main_window.py:199
+2024-08-07 19:34:07.095 | INFO     | save_data:Data saved: {'template_id': '', 'file_path': 'C:/Users/yassi/Desktop/AsteroIdea/Procounter_Spec/DEP/merged_data - Copie.csv', 'no_headers': False, 'mandatory_fields': [('Season Parker', 1), ('PMVC', 3), ('First Name', 0), ('LastName', 0), ('Lpn', 0), ('tkep', 0), ('Licence Plate', 0), ('EPAN', 0), ('PTcpt_name', 0), ('ptcpt id', 0)], 'optional_fields': [], 'zr_ip': '192.168.1.2', 'zr_port': '8566', 'username': '5552', 'password': '4711', 'column_data': {'Season Parker': ['1029', '1029'], 'PMVC': ['04.06.2024 00:00:00', '04.06.2024 00:00:00'], 'First Name': ['05.06.2024', '05.06.2024'], 'LastName': ['05.06.2024', '05.06.2024'], 'Lpn': ['05.06.2024', '05.06.2024'], 'tkep': ['05.06.2024', '05.06.2024'], 'Licence Plate': ['05.06.2024', '05.06.2024'], 'EPAN': ['05.06.2024', '05.06.2024'], 'PTcpt_name': ['05.06.2024', '05.06.2024'], 'ptcpt id': ['05.06.2024', '05.06.2024']}} | main_window.py:219
+2024-08-07 19:46:06.355 | INFO     | save_data:Data saved: {'template_id': '', 'file_path': 'C:/Users/yassi/Desktop/AsteroIdea/Procounter_Spec/DEP/merged_data - Copie.csv', 'no_headers': False, 'mandatory_fields': [('Season Parker', 2), ('PMVC', 3), ('First Name', 6), ('LastName', 0), ('Lpn', 0), ('tkep', 0), ('Licence Plate', 0), ('EPAN', 0), ('PTcpt_name', 0), ('ptcpt id', 0)], 'optional_fields': [], 'zr_ip': '192.168.1.2', 'zr_port': '8255', 'username': '6', 'password': '4711', 'column_data': {'Season Parker': [1067, 1067], 'PMVC': ['04.06.2024 00:00:00', '04.06.2024 00:00:00'], 'First Name': [0, 0], 'LastName': ['05.06.2024', '05.06.2024'], 'Lpn': ['05.06.2024', '05.06.2024'], 'tkep': ['05.06.2024', '05.06.2024'], 'Licence Plate': ['05.06.2024', '05.06.2024'], 'EPAN': ['05.06.2024', '05.06.2024'], 'PTcpt_name': ['05.06.2024', '05.06.2024'], 'ptcpt id': ['05.06.2024', '05.06.2024']}} | main_window.py:226
+2024-08-07 19:46:06.364 | INFO     | save_data:Processed data saved to: _processed_data.csv | main_window.py:227
+2024-08-07 19:52:49.126 | INFO     | save_data:Data saved: {'template_id': '', 'file_path': 'C:/Users/yassi/Desktop/AsteroIdea/Procounter_Spec/DEP/merged_data - Copie.csv', 'no_headers': False, 'mandatory_fields': [('Season Parker', 1), ('PMVC', 2), ('First Name', 4), ('LastName', 0), ('Lpn', 0), ('tkep', 0), ('Licence Plate', 0), ('EPAN', 0), ('PTcpt_name', 0), ('ptcpt id', 0)], 'optional_fields': [], 'zr_ip': '127.0.0.1', 'zr_port': '8556', 'username': '6', 'password': '4711', 'rows_data': [{'Season Parker': '1029', 'PMVC': '1067', 'First Name': '3', 'LastName': '05.06.2024', 'Lpn': '05.06.2024', 'tkep': '05.06.2024', 'Licence Plate': '05.06.2024', 'EPAN': '05.06.2024', 'PTcpt_name': '05.06.2024', 'ptcpt id': '05.06.2024'}, {'Season Parker': '1029', 'PMVC': '1067', 'First Name': '3', 'LastName': '05.06.2024', 'Lpn': '05.06.2024', 'tkep': '05.06.2024', 'Licence Plate': '05.06.2024', 'EPAN': '05.06.2024', 'PTcpt_name': '05.06.2024', 'ptcpt id': '05.06.2024'}]} | main_window.py:222
+2024-08-07 20:08:16.062 | INFO     | save_data:Data saved: [{'Season Parker': '0', 'PMVC': '0', 'First Name': '', 'LastName': '1068', 'Lpn': '05.06.2024', 'tkep': '05.06.2024', 'Licence Plate': '05.06.2024', 'EPAN': '05.06.2024', 'PTcpt_name': '05.06.2024', 'ptcpt id': '201'}, {'Season Parker': '0', 'PMVC': '0', 'First Name': '', 'LastName': '1068', 'Lpn': '05.06.2024', 'tkep': '05.06.2024', 'Licence Plate': '05.06.2024', 'EPAN': '05.06.2024', 'PTcpt_name': '05.06.2024', 'ptcpt id': '101'}, {'Season Parker': '0', 'PMVC': '0', 'First Name': '', 'LastName': '1068', 'Lpn': '05.06.2024', 'tkep': '05.06.2024', 'Licence Plate': '05.06.2024', 'EPAN': '05.06.2024', 'PTcpt_name': '05.06.2024', 'ptcpt id': '201'}, {'Season Parker': '0', 'PMVC': '0', 'First Name': '', 'LastName': '1068', 'Lpn': '05.06.2024', 'tkep': '05.06.2024', 'Licence Plate': '05.06.2024', 'EPAN': '05.06.2024', 'PTcpt_name': '05.06.2024', 'ptcpt id': '201'}, {'Season Parker': '0', 'PMVC': '0', 'First Name': '', 'LastName': '1068', 'Lpn': '05.06.2024', 'tkep': '05.06.2024', 'Licence Plate': '05.06.2024', 'EPAN': '05.06.2024', 'PTcpt_name': '05.06.2024', 'ptcpt id': '201'}, {'Season Parker': '0', 'PMVC': '0', 'First Name': '', 'LastName': '1068', 'Lpn': '05.06.2024', 'tkep': '05.06.2024', 'Licence Plate': '05.06.2024', 'EPAN': '05.06.2024', 'PTcpt_name': '05.06.2024', 'ptcpt id': '101'}, {'Season Parker': '0', 'PMVC': '0', 'First Name': '', 'LastName': '1068', 'Lpn': '05.06.2024', 'tkep': '05.06.2024', 'Licence Plate': '05.06.2024', 'EPAN': '05.06.2024', 'PTcpt_name': '05.06.2024', 'ptcpt id': '201'}, {'Season Parker': '0', 'PMVC': '0', 'First Name': '', 'LastName': '1068', 'Lpn': '05.06.2024', 'tkep': '05.06.2024', 'Licence Plate': '05.06.2024', 'EPAN': '05.06.2024', 'PTcpt_name': '05.06.2024', 'ptcpt id': '201'}] | main_window.py:223

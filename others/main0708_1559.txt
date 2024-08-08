@@ -2,11 +2,9 @@ import tkinter as tk
 from app.logic.business_logic import load_file_headers, load_file_columns, get_column_data
 from tkinter import filedialog, messagebox, ttk
 from config.log_config import logger
-from globals.global_vars import data_csv
 
 mandatory_columns = ["Season Parker", "PMVC", "First Name", "LastName","Lpn", "tkep", "Licence Plate", "EPAN","PTcpt_name", "ptcpt id"]
-optional_columns = ["Park", "LPNS"]
-rows_data = []
+optional_columns = []
 
 class CSVLoaderApp:
     def __init__(self, master):
@@ -14,12 +12,14 @@ class CSVLoaderApp:
         master.title("CSV/PSV File Processor")
         master.geometry("1300x700")
 
-        self.optional_columns = ["Park", "LPNS"]
+        self.local_data = {} 
+        self.optional_columns = []
         self.optional_field_count = 0
 
         self.create_file_input_frame()
         self.create_mandatory_fields_frame()
         self.create_optional_fields_frame()
+        self.create_data_display_frame()
         self.create_footer_frame()
 
     def create_file_input_frame(self):
@@ -38,7 +38,8 @@ class CSVLoaderApp:
         self.browse_button.pack(side=tk.LEFT, padx=(10, 20))
 
         self.no_headers_var = tk.BooleanVar(value=False)
-        self.no_headers_check = ttk.Checkbutton(input_frame, text="No Headers", variable=self.no_headers_var)
+        self.no_headers_check = ttk.Checkbutton(input_frame, text="No Headers", 
+                                                variable=self.no_headers_var)
         self.no_headers_check.pack(side=tk.LEFT, padx=(0, 10))
 
         self.load_data_button = ttk.Button(input_frame, text="Load Data", command=self.load_file_data)
@@ -68,6 +69,7 @@ class CSVLoaderApp:
             
             dropdown = ttk.Combobox(mandatory_frame, width=20, state="readonly")
             dropdown.grid(row=row, column=col+1, padx=5, pady=5, sticky=tk.W)
+            dropdown.bind("<<ComboboxSelected>>", self.update_data_display)
             
             self.dropdowns.append((label, dropdown))
 
@@ -75,18 +77,14 @@ class CSVLoaderApp:
         optional_frame = ttk.LabelFrame(self.master, text="Optional Fields")
         optional_frame.pack(pady=20, padx=20, fill=tk.X)
 
-        # Create a frame for the dropdown and add button
+        # Create a frame for the + icon and field name entry
         add_field_frame = ttk.Frame(optional_frame)
         add_field_frame.pack(side=tk.TOP, anchor=tk.NW, padx=5, pady=5)
 
-        # Create dropdown for optional field selection
-        self.optional_field_var = tk.StringVar()
-        self.optional_field_dropdown = ttk.Combobox(add_field_frame, textvariable=self.optional_field_var, 
-                                                    values=self.optional_columns, state="readonly", width=20)
-        self.optional_field_dropdown.set("Select optional field")
-        self.optional_field_dropdown.pack(side=tk.LEFT, padx=(0, 5))
+        self.optional_field_name = tk.StringVar()
+        field_name_entry = ttk.Entry(add_field_frame, textvariable=self.optional_field_name, width=20)
+        field_name_entry.pack(side=tk.LEFT, padx=(0, 5))
 
-        # Create add button
         add_button = ttk.Button(add_field_frame, text="+", command=self.add_optional_field)
         add_button.pack(side=tk.LEFT)
 
@@ -94,15 +92,10 @@ class CSVLoaderApp:
         self.optional_fields_container = ttk.Frame(optional_frame)
         self.optional_fields_container.pack(fill=tk.X, expand=True, padx=10, pady=10)
 
-
     def add_optional_field(self):
-        field_name = self.optional_field_var.get()
-        if field_name == "Select optional field":
-            messagebox.showwarning("Warning", "Please select an optional field.")
-            return
-
-        if any(field[0] == field_name for field in self.optional_fields):
-            messagebox.showwarning("Warning", "This optional field has already been added.")
+        field_name = self.optional_field_name.get().strip()
+        if not field_name:
+            messagebox.showwarning("Warning", "Please enter a field name.")
             return
 
         row = self.optional_field_count // 4
@@ -115,23 +108,26 @@ class CSVLoaderApp:
         # Create dropdown
         dropdown = ttk.Combobox(self.optional_fields_container, width=20, state="readonly")
         dropdown.grid(row=row, column=col+1, padx=5, pady=5, sticky=tk.W)
+        dropdown.bind("<<ComboboxSelected>>", self.update_data_display)
 
         if hasattr(self, 'dropdowns') and self.dropdowns:
             dropdown['values'] = self.dropdowns[0][1]['values']
 
         # Create delete button
         delete_button = ttk.Button(self.optional_fields_container, text="X", width=2,
-                                   command=lambda: self.delete_optional_field(field_name, label, dropdown, delete_button))
+                                   command=lambda: self.delete_optional_field(label, dropdown, delete_button))
         delete_button.grid(row=row, column=col+2, padx=(0, 5), pady=5, sticky=tk.W)
 
-        self.optional_fields.append((field_name, dropdown))
+        self.optional_columns.append((field_name, dropdown))
         self.optional_field_count += 1
-        
-        # Remove the added field from the dropdown options
-        current_options = list(self.optional_field_dropdown['values'])
-        current_options.remove(field_name)
-        self.optional_field_dropdown['values'] = current_options
-        self.optional_field_dropdown.set("Select optional field")
+        self.optional_field_name.set("")
+            
+    def create_data_display_frame(self):
+        self.data_frame = ttk.LabelFrame(self.master, text="Data Display")
+        self.data_frame.pack(pady=15, padx=15, fill=tk.BOTH, expand=True)
+
+        self.data_tree = ttk.Treeview(self.data_frame)
+        self.data_tree.pack(fill=tk.BOTH, expand=True)
 
 
 
@@ -157,7 +153,7 @@ class CSVLoaderApp:
         self.confirm_button.pack(side=tk.RIGHT, padx=5)
 
     def browse_file(self):
-        filename = filedialog.askopenfilename(filetypes=[("CSV/PSV Files", "*.csv")])
+        filename = filedialog.askopenfilename(filetypes=[("CSV/PSV Files", "*.csv *.PSV")])
         if filename:
             self.path_entry.delete(0, tk.END)
             self.path_entry.insert(0, filename)
@@ -177,68 +173,74 @@ class CSVLoaderApp:
             for label, dropdown in self.dropdowns:
                 dropdown['values'] = [""] + headers  
                 dropdown.set("")  
-            for name, dropdown in self.optional_fields:
+            for name, dropdown in self.optional_columns:
                 dropdown['values'] = [""] + headers  
-                dropdown.set("")   
+                dropdown.set("")  
+            self.update_data_display()
         else:
             messagebox.showwarning("Warning", "The file appears to be empty.")
             
-    def delete_optional_field(self, field_name, label, dropdown, button):
+    def delete_optional_field(self, label, dropdown, button):
         label.destroy()
         dropdown.destroy()
         button.destroy()
-        self.optional_fields = [field for field in self.optional_fields if field[0] != field_name]
+        self.optional_columns = [field for field in self.optional_columns if field[1] != dropdown]
         self.optional_field_count -= 1
+        self.update_data_display()
 
-        # Add the removed field back to the dropdown options
-        current_options = list(self.optional_field_dropdown['values'])
-        current_options.append(field_name)
-        self.optional_field_dropdown['values'] = current_options
-        self.optional_field_count -= 1
+    def update_data_display(self, event=None):
+        path = self.path_entry.get()
+        
+        if not path:
+            messagebox.showwarning("Warning", "Please select a file.")
+            return
 
+        # Collect selected indices for mandatory and optional columns
+        selected_columns = [(label, dropdown.current()) for label, dropdown in self.dropdowns if dropdown.current() != -1]
+        selected_columns += [(name, dropdown.current()) for name, dropdown in self.optional_columns if dropdown.current() != -1]
+
+        # Clear existing data in the treeview
+        self.data_tree.delete(*self.data_tree.get_children())
+
+        # Update treeview columns
+        self.data_tree['columns'] = ['Column', 'Selected Index']
+        self.data_tree['show'] = 'headings'
+
+        # Set up column headings
+        for col in self.data_tree['columns']:
+            self.data_tree.heading(col, text=col)
+            self.data_tree.column(col, width=150, anchor='center')
+
+        # Insert selected column information
+        for col_name, index in selected_columns:
+            self.data_tree.insert("", "end", values=(col_name, index))
+
+        # Log the selected column information
+        logger.info("Selected Columns:")
+        for col_name, index in selected_columns:
+            logger.info(f"{col_name}: Column index {index}")
+
+        if not selected_columns:
+            messagebox.showinfo("Info", "No columns selected.")
+            
         
     def on_template_change(self, event):
         template_id = self.template_entry.get()
         logger.info(f"Template ID: {template_id}")
 
     def save_data(self):
-        global data_csv
-        file_path = self.path_entry.get()
-        
-        # Collect selected columns and their indices
-        selected_columns = [(label, dropdown.current()) for label, dropdown in self.dropdowns if dropdown.current() != -1]
-        selected_columns += [(name, dropdown.current()) for name, dropdown in self.optional_fields if dropdown.current() != -1]
-        
-        # Get column indices
-        column_indices = [index for _, index in selected_columns]
-        
-        # Get the actual data for selected columns
-        column_data, error = get_column_data(file_path, *column_indices)
-        
-        if error:
-            messagebox.showerror("Error", f"Failed to retrieve column data: {error}")
-            return
-        
-        # Create a list of dictionaries, each representing a row
-        rows_data = []
-        for row in column_data:
-            row_dict = {label: row[i] for i, (label, _) in enumerate(selected_columns)}
-            rows_data.append(row_dict)
-        
-        data_csv = {
+        self.local_data = {
             'template_id': self.template_entry.get(),
-            'file_path': file_path,
+            'file_path': self.path_entry.get(),
             'no_headers': self.no_headers_var.get(),
-            'mandatory_fields': [(label, index) for label, index in selected_columns if label in mandatory_columns],
-            'optional_fields': [(label, index) for label, index in selected_columns if label not in mandatory_columns],
+            'mandatory_fields': [(label, dropdown.current()) for label, dropdown in self.dropdowns if dropdown.current() != -1],
+            'optional_fields': [(name, dropdown.current()) for name, dropdown in self.optional_columns if dropdown.current() != -1],
             'zr_ip': self.zr_ip.get(),
             'zr_port': self.zr_port.get(),
             'username': self.username.get(),
-            'password': self.password.get(),
-            'rows_data': rows_data  
+            'password': self.password.get()
         }
-        
-        logger.info(f"Data saved: {data_csv.get('rows_data')}")
+        logger.info(f"Data saved: {self.local_data}")
         messagebox.showinfo("Success", "Data saved successfully!")
-                
+        
         
