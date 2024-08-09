@@ -6,7 +6,7 @@ def load_file_headers(path):
         return None, "File does not exist."
 
     try:
-        delimiter = ',' if path.lower().endswith('.csv') else '|' or ';'
+        delimiter = ',' or ';' if path.lower().endswith('.csv') else '|' or ';'
         with open(path, 'r') as file:
             reader = csv.reader(file, delimiter=delimiter)
             if path.lower().endswith('.PSV'):
@@ -23,7 +23,7 @@ def load_file_columns(path):
         return None, "File does not exist."
 
     try:
-        delimiter = ',' if path.lower().endswith('.csv') else '|' or ';'
+        delimiter = ',' or ';' if path.lower().endswith('.csv') else '|' or ';'
         with open(path, 'r') as file:
             reader = csv.reader(file, delimiter=delimiter)
             if path.lower().endswith('.PSV'):

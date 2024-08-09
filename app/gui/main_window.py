@@ -1,143 +1,143 @@
-import tkinter as tk
+import threading
+import customtkinter as ctk
+from api.api_media import create_company, get_company_details
+from app.gui.pop_up import pop_up
 from app.logic.business_logic import load_file_headers, load_file_columns, get_column_data
-from tkinter import filedialog, messagebox, ttk
+from tkinter import filedialog, messagebox
+from app.logic.test_connect import test_zr_connection
 from config.log_config import logger
-from globals.global_vars import data_csv
+from functions.dict_xml import contract_to_xml
+from globals.global_vars import data_csv, footer_data
 
-mandatory_columns = ["Season Parker", "PMVC", "First Name", "LastName","Lpn", "tkep", "Licence Plate", "EPAN","PTcpt_name", "ptcpt id"]
-optional_columns = ["Park", "LPNS"]
+ctk.set_appearance_mode("Dark")  
+ctk.set_default_color_theme("blue")  
+pop_up_screen = pop_up()
+
+mandatory_columns = [
+    "Company_id","Company_Name", "Company_ValidUntil","Participant_Contractid",
+    "Participant_Firstname","Participant_Surname",
+    "Participant_CardNumber","Participant_LPN1"
+]
+optional_columns = [
+    "Company_ValidFrom", "Company_Surname", "Company_phone1","Company_email1", "Company_Street", "Company_Town",
+    "Company_Postbox",  "Participant_FilialId",  "Participant_FirstName",  "Participant_Surname",  "Participant_Type",
+    "Participant_Cardclass",  "Participant_IdentificationType",  "Participant_ValidFrom","Participant_ValidUntil",  
+    "Participant_IgnorePresence",  "Participant_Present","Participant_Status",  "Participant_GrpNo",  "Participant_ChrgOvdrftAcct",
+    "Participant_DisplayText",  "Participant_Limit",  "Participant_Status","Participant_Delete", "Participant_LPN2", "Participant_LPN3"
+]
+
 rows_data = []
 
-class CSVLoaderApp:
-    def __init__(self, master):
-        self.master = master
-        master.title("CSV/PSV File Processor")
-        master.geometry("1300x700")
+print(f"hnaaa rows data \n {rows_data}")
 
-        self.optional_columns = ["Park", "LPNS"]
+class CSVLoaderApp(ctk.CTk):
+    def __init__(self):
+        super().__init__()
+
+        self.title("CSV/PSV File Processor")
+        self.geometry("1300x700")
+
         self.optional_field_count = 0
+        self.optional_fields = []
+
+        self.grid_columnconfigure(0, weight=1)
+        self.grid_rowconfigure(0, weight=1)
+
+        self.main_frame = ctk.CTkFrame(self)
+        self.main_frame.grid(row=0, column=0, padx=20, pady=20, sticky="nsew")
+        self.main_frame.grid_columnconfigure(0, weight=1)
 
         self.create_file_input_frame()
         self.create_mandatory_fields_frame()
         self.create_optional_fields_frame()
+        self.create_sync_button()
         self.create_footer_frame()
 
     def create_file_input_frame(self):
-        file_data_frame = ttk.LabelFrame(self.master, text="File Data Infos")
-        file_data_frame.pack(side=tk.TOP, pady=20, padx=20, fill=tk.X)
+        file_data_frame = ctk.CTkFrame(self.main_frame)
+        file_data_frame.grid(row=0, column=0, padx=10, pady=10, sticky="ew")
+        file_data_frame.grid_columnconfigure(1, weight=1)
 
-        input_frame = ttk.Frame(file_data_frame)
-        input_frame.pack(pady=10, fill=tk.X)
+        ctk.CTkLabel(file_data_frame, text="File Path:").grid(row=0, column=0, padx=5, pady=5)
+        self.path_entry = ctk.CTkEntry(file_data_frame, width=400)
+        self.path_entry.grid(row=0, column=1, padx=5, pady=5, sticky="ew")
 
-        self.path_label = ttk.Label(input_frame, text="File Path:")
-        self.path_label.pack(side=tk.LEFT, padx=(0, 10))
-        self.path_entry = ttk.Entry(input_frame, width=50)
-        self.path_entry.pack(side=tk.LEFT, expand=True, fill=tk.X)
+        self.browse_button = ctk.CTkButton(file_data_frame, text="Browse", command=self.browse_file)
+        self.browse_button.grid(row=0, column=2, padx=5, pady=5)
 
-        self.browse_button = ttk.Button(input_frame, text="Browse", command=self.browse_file)
-        self.browse_button.pack(side=tk.LEFT, padx=(10, 20))
+        self.no_headers_var = ctk.BooleanVar(value=False)
+        self.no_headers_check = ctk.CTkCheckBox(file_data_frame, text="No Headers", variable=self.no_headers_var)
+        self.no_headers_check.grid(row=0, column=3, padx=5, pady=5)
 
-        self.no_headers_var = tk.BooleanVar(value=False)
-        self.no_headers_check = ttk.Checkbutton(input_frame, text="No Headers", variable=self.no_headers_var)
-        self.no_headers_check.pack(side=tk.LEFT, padx=(0, 10))
+        self.load_data_button = ctk.CTkButton(file_data_frame, text="Load Data", command=self.load_file_data)
+        self.load_data_button.grid(row=0, column=4, padx=5, pady=5)
 
-        self.load_data_button = ttk.Button(input_frame, text="Load Data", command=self.load_file_data)
-        self.load_data_button.pack(side=tk.LEFT)
-        
-        template_frame = ttk.Frame(file_data_frame)
-        template_frame.pack(pady=10, fill=tk.X)
-
-        self.template_label = ttk.Label(template_frame, text="Template ID:")
-        self.template_label.pack(side=tk.LEFT, padx=(0, 10))
-        self.template_entry = ttk.Entry(template_frame, width=50)
-        self.template_entry.pack(side=tk.LEFT, expand=True, fill=tk.X)
+        ctk.CTkLabel(file_data_frame, text="Template ID:").grid(row=1, column=0, padx=5, pady=5)
+        self.template_entry = ctk.CTkEntry(file_data_frame, width=400)
+        self.template_entry.grid(row=1, column=1, padx=5, pady=5, sticky="ew")
         self.template_entry.bind('<KeyRelease>', self.on_template_change)
 
     def create_mandatory_fields_frame(self):
-        mandatory_frame = ttk.LabelFrame(self.master, text="Mandatory Fields *")
-        mandatory_frame.pack(pady=20, padx=20, fill=tk.X)
-            
+        mandatory_frame = ctk.CTkFrame(self.main_frame)
+        mandatory_frame.grid(row=1, column=0, padx=10, pady=10, sticky="ew")
+        mandatory_frame.grid_columnconfigure((1, 3, 5, 7, 9), weight=1)
+
+        ctk.CTkLabel(mandatory_frame, text="Mandatory Fields", font=("Arial", 16, "bold")).grid(row=0, column=0, columnspan=10, pady=10)
+
         self.dropdowns = []
-        
         for i, label in enumerate(mandatory_columns):
-            row = i // 5
-            col = (i % 5) * 2
-            
-            label_widget = ttk.Label(mandatory_frame, text=label)
-            label_widget.grid(row=row, column=col, padx=10, pady=5, sticky=tk.W)
-            
-            dropdown = ttk.Combobox(mandatory_frame, width=20, state="readonly")
-            dropdown.grid(row=row, column=col+1, padx=5, pady=5, sticky=tk.W)
-            
+            row = (i // 4) + 1
+            col = (i % 4) * 2
+
+            ctk.CTkLabel(mandatory_frame, text=label).grid(row=row, column=col, padx=5, pady=5, sticky="w")
+            dropdown = ctk.CTkOptionMenu(mandatory_frame, width=150,)
+            dropdown.grid(row=row, column=col+1, padx=5, pady=5, sticky="ew")
+            dropdown.set("No Colomn selected")
             self.dropdowns.append((label, dropdown))
 
     def create_optional_fields_frame(self):
-        optional_frame = ttk.LabelFrame(self.master, text="Optional Fields")
-        optional_frame.pack(pady=20, padx=20, fill=tk.X)
+        optional_frame = ctk.CTkFrame(self.main_frame)
+        optional_frame.grid(row=2, column=0, padx=10, pady=10, sticky="ew")
+        optional_frame.grid_columnconfigure((0, 1, 2), weight=1)
 
-        # Create a frame for the dropdown and add button
-        add_field_frame = ttk.Frame(optional_frame)
-        add_field_frame.pack(side=tk.TOP, anchor=tk.NW, padx=5, pady=5)
+        ctk.CTkLabel(optional_frame, text="Optional Fields", font=("Arial", 16, "bold")).grid(row=0, column=0, columnspan=4, pady=10)
 
-        # Create dropdown for optional field selection
-        self.optional_field_var = tk.StringVar()
-        self.optional_field_dropdown = ttk.Combobox(add_field_frame, textvariable=self.optional_field_var, 
-                                                    values=self.optional_columns, state="readonly", width=20)
-        self.optional_field_dropdown.set("Select optional field")
-        self.optional_field_dropdown.pack(side=tk.LEFT, padx=(0, 5))
+        self.optional_field_var = ctk.StringVar()
+        self.optional_field_dropdown = ctk.CTkOptionMenu(optional_frame, variable=self.optional_field_var, values=["No optional field"] + optional_columns, width=150)
+        self.optional_field_dropdown.grid(row=1, column=0, padx=5, pady=5)
+        self.optional_field_dropdown.set("No optional field")
 
-        # Create add button
-        add_button = ttk.Button(add_field_frame, text="+", command=self.add_optional_field)
-        add_button.pack(side=tk.LEFT)
+        self.header_var = ctk.StringVar()
+        self.header_dropdown = ctk.CTkOptionMenu(optional_frame, variable=self.header_var, values=[""], width=150)
+        self.header_dropdown.grid(row=1, column=1, padx=5, pady=5)
+        self.header_dropdown.set("No Column selected")
 
-        # Create a frame for optional fields
-        self.optional_fields_container = ttk.Frame(optional_frame)
-        self.optional_fields_container.pack(fill=tk.X, expand=True, padx=10, pady=10)
+        add_button = ctk.CTkButton(optional_frame, text="+", width=30, command=self.add_optional_field)
+        add_button.grid(row=1, column=2, padx=5, pady=5)
 
+        self.optional_fields_container = ctk.CTkFrame(optional_frame)
+        self.optional_fields_container.grid(row=2, column=0, columnspan=3, padx=5, pady=5, sticky="ew")
+        self.optional_fields_container.grid_columnconfigure((0, 1, 2), weight=1)
 
-    def add_optional_field(self):
-        field_name = self.optional_field_var.get()
-        if field_name == "Select optional field":
-            messagebox.showwarning("Warning", "Please select an optional field.")
-            return
+    def create_sync_button(self):
+        sync_frame = ctk.CTkFrame(self.main_frame)
+        sync_frame.grid(row=4, column=0, padx=10, pady=10, sticky="ew")
+        sync_frame.grid_columnconfigure(0, weight=1)
 
-        if any(field[0] == field_name for field in self.optional_fields):
-            messagebox.showwarning("Warning", "This optional field has already been added.")
-            return
-
-        row = self.optional_field_count // 4
-        col = (self.optional_field_count % 4) * 3
-
-        # Create label
-        label = ttk.Label(self.optional_fields_container, text=field_name)
-        label.grid(row=row, column=col, padx=5, pady=5, sticky=tk.W)
-
-        # Create dropdown
-        dropdown = ttk.Combobox(self.optional_fields_container, width=20, state="readonly")
-        dropdown.grid(row=row, column=col+1, padx=5, pady=5, sticky=tk.W)
-
-        if hasattr(self, 'dropdowns') and self.dropdowns:
-            dropdown['values'] = self.dropdowns[0][1]['values']
-
-        # Create delete button
-        delete_button = ttk.Button(self.optional_fields_container, text="X", width=2,
-                                   command=lambda: self.delete_optional_field(field_name, label, dropdown, delete_button))
-        delete_button.grid(row=row, column=col+2, padx=(0, 5), pady=5, sticky=tk.W)
-
-        self.optional_fields.append((field_name, dropdown))
-        self.optional_field_count += 1
+        self.sync_button = ctk.CTkButton(sync_frame, text="Sync", command=self.save_data)
+        self.sync_button.grid(row=0, column=0, padx=5, pady=5, sticky="e")
         
-        # Remove the added field from the dropdown options
-        current_options = list(self.optional_field_dropdown['values'])
-        current_options.remove(field_name)
-        self.optional_field_dropdown['values'] = current_options
-        self.optional_field_dropdown.set("Select optional field")
-
-
-
     def create_footer_frame(self):
-        footer_frame = ttk.Frame(self.master)
-        footer_frame.pack(side=tk.BOTTOM, fill=tk.X, padx=20, pady=20)
+        footer_frame = ctk.CTkFrame(self.main_frame)
+        footer_frame.grid(row=3, column=0, padx=10, pady=10, sticky="ew")
+        footer_frame.grid_columnconfigure((0, 1, 2, 3, 4, 5, 6, 7), weight=1)  
+
+        zr_def_values = {
+            "zr_ip": "127.0.0.1",
+            "zr_port": "8443",
+            "username": "6",
+            "password": "4711"
+        }
 
         entries = [
             ("ZR IP", "zr_ip"),
@@ -146,20 +146,22 @@ class CSVLoaderApp:
             ("Password", "password")
         ]
 
-        for label, attr in entries:
-            setattr(self, attr, tk.StringVar(value=label))
-            entry = ttk.Entry(footer_frame, textvariable=getattr(self, attr))
-            entry.pack(side=tk.LEFT, padx=5)
+        for i, (label, attr) in enumerate(entries):
+            ctk.CTkLabel(footer_frame, text=label).grid(row=0, column=2 * i, padx=5, pady=5, sticky="w")
+            entry = ctk.CTkEntry(footer_frame)
+            entry.insert(0, zr_def_values.get(attr, ""))  
+            entry.grid(row=0, column=2 * i + 1, padx=5, pady=5, sticky="ew")
+            setattr(self, attr, entry)
             if attr == "password":
                 entry.configure(show="*")
 
-        self.confirm_button = ttk.Button(footer_frame, text="Confirm", command=self.save_data)
-        self.confirm_button.pack(side=tk.RIGHT, padx=5)
+        self.confirm_button = ctk.CTkButton(footer_frame, text="Test & Confirm", command=self.save_zr_data)
+        self.confirm_button.grid(row=0, column=8, padx=5, pady=10, sticky="e")
 
     def browse_file(self):
-        filename = filedialog.askopenfilename(filetypes=[("CSV/PSV Files", "*.csv")])
+        filename = filedialog.askopenfilename(filetypes=[("CSV Files", "*.csv")])
         if filename:
-            self.path_entry.delete(0, tk.END)
+            self.path_entry.delete(0, ctk.END)
             self.path_entry.insert(0, filename)
             self.load_file_data()
 
@@ -175,70 +177,193 @@ class CSVLoaderApp:
             messagebox.showerror("Error", error)
         elif headers:
             for label, dropdown in self.dropdowns:
-                dropdown['values'] = [""] + headers  
-                dropdown.set("")  
-            for name, dropdown in self.optional_fields:
-                dropdown['values'] = [""] + headers  
-                dropdown.set("")   
+                dropdown.configure(values=[""] + headers)
+                dropdown.set("")
+            self.header_dropdown.configure(values=[""] + headers)
+            self.header_dropdown.set("")
         else:
             messagebox.showwarning("Warning", "The file appears to be empty.")
-            
-    def delete_optional_field(self, field_name, label, dropdown, button):
+
+    def add_optional_field(self):
+        field_name = self.optional_field_var.get()
+        header_value = self.header_var.get()
+
+        if field_name == "No optional field":
+            messagebox.showwarning("Warning", "Please select an optional field.")
+            return
+
+        if header_value == "":
+            messagebox.showwarning("Warning", "Please select a header value.")
+            return
+
+        if any(field[0] == field_name for field in self.optional_fields):
+            messagebox.showwarning("Warning", "This optional field has already been added.")
+            return
+
+        # Calculate row and column based on the number of fields added
+        index = len(self.optional_fields)
+        row = index // 3
+        col = (index % 3) * 2  # We use * 2 to leave space for the delete button in the next column
+
+        # Create the label for the field
+        label = ctk.CTkLabel(self.optional_fields_container, text=f"{field_name}: {header_value}")
+        label.grid(row=row, column=col, padx=5, pady=5, sticky="w")
+
+        # Create the delete button next to the label
+        delete_button = ctk.CTkButton(self.optional_fields_container, text="X", width=30,
+                                    command=lambda: self.delete_optional_field(field_name, label, delete_button))
+        delete_button.grid(row=row, column=col + 1, padx=10, pady=5)
+
+        # Add the field and header value to the list
+        self.optional_fields.append((field_name, header_value))
+
+        # Update the dropdown menu to remove the selected field name
+        current_options = list(self.optional_field_dropdown.cget("values"))
+        current_options.remove(field_name)
+
+        # Handle the case where no more options are left
+        if len(current_options) == 1:
+            current_options = ["No optional field"]
+        self.optional_field_dropdown.configure(values=current_options)
+        self.optional_field_dropdown.set("No optional field" if len(current_options) == 1 else current_options[1])
+
+        # Reset header dropdown
+        self.header_dropdown.set("")
+
+    def delete_optional_field(self, field_name, label, button):
         label.destroy()
-        dropdown.destroy()
         button.destroy()
         self.optional_fields = [field for field in self.optional_fields if field[0] != field_name]
-        self.optional_field_count -= 1
 
-        # Add the removed field back to the dropdown options
-        current_options = list(self.optional_field_dropdown['values'])
+        # Update dropdown options
+        current_options = list(self.optional_field_dropdown.cget("values"))
+        if "No optional field" not in current_options:
+            current_options = ["No optional field"] + current_options
         current_options.append(field_name)
-        self.optional_field_dropdown['values'] = current_options
-        self.optional_field_count -= 1
+        self.optional_field_dropdown.configure(values=current_options)
+        self.optional_field_dropdown.set("No optional field" if len(self.optional_fields) == 0 else current_options[1])
 
-        
     def on_template_change(self, event):
         template_id = self.template_entry.get()
         logger.info(f"Template ID: {template_id}")
 
+    def save_zr_data(self):
+        global footer_data
+
+        footer_data['zr_ip'] = self.zr_ip.get()
+        footer_data['zr_port'] = self.zr_port.get()
+        footer_data['username'] = self.username.get()
+        footer_data['password'] = self.password.get()
+
+        test_zr_connection()
+        pop_up_screen.create_loading_popup("Please wait, processing...", timer=5)
+        logger.info(f"ZR data saved: {footer_data}")
+        messagebox.showinfo("Success", "ZR Data saved successfully!")
+        pop_up_screen.close_loading_popup()
+
     def save_data(self):
-        global data_csv
+        global data_csv, rows_data
         file_path = self.path_entry.get()
-        
-        # Collect selected columns and their indices
-        selected_columns = [(label, dropdown.current()) for label, dropdown in self.dropdowns if dropdown.current() != -1]
-        selected_columns += [(name, dropdown.current()) for name, dropdown in self.optional_fields if dropdown.current() != -1]
-        
-        # Get column indices
-        column_indices = [index for _, index in selected_columns]
-        
-        # Get the actual data for selected columns
+
+        data_csv = {}
+        rows_data = []
+        unique_company_ids = set()
+
+        selected_columns = [(label, dropdown.get()) for label, dropdown in self.dropdowns if dropdown.get() != ""]
+        selected_columns += [(name, header) for name, header in self.optional_fields]
+
+        column_indices = [self.dropdowns[0][1].cget("values").index(column) - 1 for _, column in selected_columns]
+
         column_data, error = get_column_data(file_path, *column_indices)
-        
+
         if error:
             messagebox.showerror("Error", f"Failed to retrieve column data: {error}")
             return
-        
-        # Create a list of dictionaries, each representing a row
-        rows_data = []
+
         for row in column_data:
             row_dict = {label: row[i] for i, (label, _) in enumerate(selected_columns)}
             rows_data.append(row_dict)
-        
-        data_csv = {
-            'template_id': self.template_entry.get(),
-            'file_path': file_path,
-            'no_headers': self.no_headers_var.get(),
-            'mandatory_fields': [(label, index) for label, index in selected_columns if label in mandatory_columns],
-            'optional_fields': [(label, index) for label, index in selected_columns if label not in mandatory_columns],
-            'zr_ip': self.zr_ip.get(),
-            'zr_port': self.zr_port.get(),
-            'username': self.username.get(),
-            'password': self.password.get(),
-            'rows_data': rows_data  
-        }
-        
-        logger.info(f"Data saved: {data_csv.get('rows_data')}")
-        messagebox.showinfo("Success", "Data saved successfully!")
+            
+            company_id = row_dict.get('Company_id')
+            
+            if company_id and company_id not in unique_company_ids:
+                logger.info(f"Data saved: {company_id}")
+                unique_company_ids.add(company_id)
+
+        print("Unique Company IDs:", " ".join(map(str, unique_company_ids)))
+
+        for company_id in unique_company_ids:
+            status_code, company_details = get_company_details(company_id)
+            if status_code != 404:
+                logger.info(f"Company ID {company_id} found")
+            else:
+                logger.info(f"Company ID {company_id} not found")
                 
+                # Find the corresponding row data for this company_id
+                company_data = next((row for row in rows_data if row.get('Company_id') == company_id), None)
+                
+                if company_data:
+                    data_contract = {
+                        "contract": {
+                            "name": company_data.get('Company_Name'),
+                            "xValidFrom": company_data.get('Company_ValidFrom', 'NOVALIDFROM'),
+                            "xValidUntil": company_data.get('Company_ValidUntil', '2025-12-31')
+                        },
+                        "person": {
+                            "surname": company_data.get('Company_Surname', 'NOSURNAME'),
+                            "phone1": company_data.get('Company_phone1', 'NONUMBER'),
+                            "email1": company_data.get('Company_email1', 'NOEMAIL')
+                        },
+                        "stdAddr": {
+                            "street": company_data.get('Company_Street', 'NOSTREET'),
+                            "town": company_data.get('Company_Town', 'NOTOWN'),
+                            "postbox": company_data.get('Company_Postbox', 'NOPOSTBOX')
+                        }
+                    }
+                    
+                    contract_xml = contract_to_xml(data_contract)
+                    status_code, result = create_company(contract_xml)
+                    
+                    if status_code == 201:
+                        logger.info(f"Company ID {company_id} created successfully")
+                    else:
+                        logger.error(f"Failed to create Company ID {company_id}. Status code: {status_code}")
+
+
+
+        # Populate the data_csv dictionary with new data
+        data_csv['template_id'] = self.template_entry.get()
+        data_csv['file_path'] = file_path
+        data_csv['no_headers'] = self.no_headers_var.get()
+        data_csv['mandatory_fields'] = [(label, column) for label, column in selected_columns if label in mandatory_columns]
+        data_csv['optional_fields'] = [(label, column) for label, column in selected_columns if label not in mandatory_columns]
+        data_csv['rows_data'] = rows_data
+        
+        """ company_exist = check_company(49)
+        if company_exist:
+            logger.info("The company already exist")
+        
+        if not company_exist:
+
+            data_contract = {
+                "contract": {
+                    "name": "MG",
+                    "xValidFrom": "2021-01-01",
+                    "xValidUntil": "2021-12-31"
+                },
+                "person": {
+                    "surname": "Groupe Me",
+                    "phone1": "76111111",
+                    "email1": "Monoprix@mail.tn"
+                },
+                "stdAddr": {
+                    "street": "Lac 1",
+                    "town": "Tunis",
+                    "postbox": "666"
+                }
+            } """
+
+        
+        messagebox.showinfo("Success", "Data saved successfully!")
+        logger.info(f"Data saved")
         

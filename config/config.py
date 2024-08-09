@@ -20,4 +20,6 @@ APP_IP = str(os.getenv("APP_IP")) if os.getenv("APP_IP") else config.get('APP', 
 APP_PORT = int(os.getenv("APP_PORT")) if os.getenv("APP_PORT") else config.getint('APP', 'APP_PORT', fallback=8100)
 
 ZR_IP = str(os.getenv("ZR_IP")) if os.getenv("ZR_IP") else config.get('APP', 'ZR_IP', fallback='127.0.0.1')
-ZR_PORT = int(os.getenv("ZR_PORT")) if os.getenv("ZR_PORT") else config.getint('APP', 'ZR_PORT', fallback=8090)
+ZR_PORT = int(os.getenv("ZR_PORT")) if os.getenv("ZR_PORT") else config.getint('APP', 'ZR_PORT', fallback=8443)
+
+TIMOUT = int(os.getenv("TIMOUT")) if os.getenv("TIMOUT") else config.getint('APP', 'TIMOUT', fallback=5)
