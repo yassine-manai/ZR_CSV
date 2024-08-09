@@ -1,7 +1,7 @@
-import threading
+from time import sleep
 import customtkinter as ctk
 from api.api_media import create_company, get_company_details
-from app.gui.pop_up import pop_up
+from app.gui.pop_up import close_loading_popup, show_loading_popup
 from app.logic.business_logic import load_file_headers, load_file_columns, get_column_data
 from tkinter import filedialog, messagebox
 from app.logic.test_connect import test_zr_connection
@@ -11,7 +11,6 @@ from globals.global_vars import data_csv, footer_data
 
 ctk.set_appearance_mode("Dark")  
 ctk.set_default_color_theme("blue")  
-pop_up_screen = pop_up()
 
 mandatory_columns = [
     "Company_id","Company_Name", "Company_ValidUntil","Participant_Contractid",
@@ -34,7 +33,7 @@ class CSVLoaderApp(ctk.CTk):
     def __init__(self):
         super().__init__()
 
-        self.title("CSV/PSV File Processor")
+        self.title("Customer Media Processor")
         self.geometry("1300x700")
 
         self.optional_field_count = 0
@@ -158,13 +157,24 @@ class CSVLoaderApp(ctk.CTk):
         self.confirm_button = ctk.CTkButton(footer_frame, text="Test & Confirm", command=self.save_zr_data)
         self.confirm_button.grid(row=0, column=8, padx=5, pady=10, sticky="e")
 
-    def browse_file(self):
-        filename = filedialog.askopenfilename(filetypes=[("CSV Files", "*.csv")])
-        if filename:
-            self.path_entry.delete(0, ctk.END)
-            self.path_entry.insert(0, filename)
-            self.load_file_data()
+    def browse_file(self): 
+        logger.debug("Selecting file process started...")       
+        try:
+            filename = filedialog.askopenfilename(filetypes=[("CSV Files", "*.csv")])
+            logger.debug("Selecting CSV file ...")       
 
+            if filename:
+                self.path_entry.delete(0, ctk.END)
+                self.path_entry.insert(0, filename)
+                
+                logger.success(f"CSV File Selected : {filename}")       
+
+                self.load_file_data()
+
+        except Exception as e:
+                logger.error(f"Selecting CSV file Failed with error {str(e)}...")       
+                messagebox.showerror("Error", "An error occurred - Selecting File")
+         
     def load_file_data(self):
         path = self.path_entry.get()
         if not path:
@@ -256,10 +266,8 @@ class CSVLoaderApp(ctk.CTk):
         footer_data['password'] = self.password.get()
 
         test_zr_connection()
-        pop_up_screen.create_loading_popup("Please wait, processing...", timer=5)
         logger.info(f"ZR data saved: {footer_data}")
         messagebox.showinfo("Success", "ZR Data saved successfully!")
-        pop_up_screen.close_loading_popup()
 
     def save_data(self):
         global data_csv, rows_data
@@ -296,6 +304,7 @@ class CSVLoaderApp(ctk.CTk):
             status_code, company_details = get_company_details(company_id)
             if status_code != 404:
                 logger.info(f"Company ID {company_id} found")
+                #logger.info(f"Company Detail : {company_details}")
             else:
                 logger.info(f"Company ID {company_id} not found")
                 
@@ -305,6 +314,7 @@ class CSVLoaderApp(ctk.CTk):
                 if company_data:
                     data_contract = {
                         "contract": {
+                            "id": company_data.get('Company_id'),
                             "name": company_data.get('Company_Name'),
                             "xValidFrom": company_data.get('Company_ValidFrom', 'NOVALIDFROM'),
                             "xValidUntil": company_data.get('Company_ValidUntil', '2025-12-31')
@@ -330,6 +340,11 @@ class CSVLoaderApp(ctk.CTk):
                         logger.error(f"Failed to create Company ID {company_id}. Status code: {status_code}")
 
 
+        sleep(10)
+        
+        
+            
+            
 
         # Populate the data_csv dictionary with new data
         data_csv['template_id'] = self.template_entry.get()
@@ -339,31 +354,7 @@ class CSVLoaderApp(ctk.CTk):
         data_csv['optional_fields'] = [(label, column) for label, column in selected_columns if label not in mandatory_columns]
         data_csv['rows_data'] = rows_data
         
-        """ company_exist = check_company(49)
-        if company_exist:
-            logger.info("The company already exist")
-        
-        if not company_exist:
 
-            data_contract = {
-                "contract": {
-                    "name": "MG",
-                    "xValidFrom": "2021-01-01",
-                    "xValidUntil": "2021-12-31"
-                },
-                "person": {
-                    "surname": "Groupe Me",
-                    "phone1": "76111111",
-                    "email1": "Monoprix@mail.tn"
-                },
-                "stdAddr": {
-                    "street": "Lac 1",
-                    "town": "Tunis",
-                    "postbox": "666"
-                }
-            } """
-
-        
-        messagebox.showinfo("Success", "Data saved successfully!")
         logger.info(f"Data saved")
+        #messagebox.showinfo("Success", "Data saved successfully!")
         
