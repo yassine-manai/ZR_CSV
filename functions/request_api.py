@@ -21,7 +21,6 @@ def make_request(method: str, url: str, **kwargs) -> tuple:
 
         # Log the full response
         logger.debug(f"Received response [{response.status_code}] from {url}")
-        logger.debug(f"Response headers: {dict(response.headers)}")
         logger.debug(f"Response content: {response.text}")
 
         result = {
@@ -48,8 +47,7 @@ def make_request(method: str, url: str, **kwargs) -> tuple:
             error.status_code = response.status_code
             error.response_content = response.text
             error.response_headers = dict(response.headers)
-            logger.error(f"HTTP Error: {error.message}")
-            logger.error(f"Status Code: {error.status_code}")
+            logger.error(f"HTTP Error: {error.message} with Status Code: {error.status_code}")
             raise error
         else:
             return 404, {

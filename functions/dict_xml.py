@@ -1,3 +1,6 @@
+import xml.sax.saxutils as xml_utils
+
+
 def contract_to_xml(data):
     xml_content = '<?xml version="1.0" encoding="UTF-8"?>\n'
     xml_content += '<cm:contractDetail xmlns:cm="http://gsph.sub.com/cust/types">\n'
@@ -32,51 +35,25 @@ def contract_to_xml(data):
 
 
 def consumer_to_xml(data):
-    xml_content = '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>\n'
-    xml_content += '<cm:consumerDetail xmlns:cm="http://gsph.sub.com/cust/types">\n'
+    xml_content = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n'
+    xml_content += '<cm:contractDetail xmlns:cm="http://gsph.sub.com/cust/types">\n'
     
-    # Consumer section
-    if 'consumer' in data:
-        xml_content += '<cm:consumer>\n'
-        for key in ['contractid', 'name', 'xValidFrom', 'xValidUntil', 'filialId']:
-            if key in data['consumer']:
-                xml_content += f'<cm:{key}>{data["consumer"][key]}</cm:{key}>\n'
-        xml_content += '</cm:consumer>\n'
+    for key, value in data.items():
+        if isinstance(value, dict):
+            xml_content += f'<cm:{key}>\n'
+            for sub_key, sub_value in value.items():
+                if isinstance(sub_value, dict):
+                    xml_content += f'<cm:{sub_key}>\n'
+                    for nested_key, nested_value in sub_value.items():
+                        xml_content += f'<cm:{nested_key}>{nested_value}</cm:{nested_key}>\n'
+                    xml_content += f'</cm:{sub_key}>\n'
+                else:
+                    xml_content += f'<cm:{sub_key}>{sub_value}</cm:{sub_key}>\n'
+            xml_content += f'</cm:{key}>\n'
+        else:
+            xml_content += f'<cm:{key}>{value}</cm:{key}>\n'
     
-    # Person section
-    if 'person' in data:
-        xml_content += '<cm:person>\n'
-        for key in ['firstName', 'surname']:
-            if key in data['person']:
-                xml_content += f'<cm:{key}>{data["person"][key]}</cm:{key}>\n'
-        xml_content += '</cm:person>\n'
-    
-    # Identification section
-    if 'identification' in data:
-        xml_content += '<cm:identification>\n'
-        for key in ['ptcptType', 'cardno', 'cardclass', 'identificationType', 'validFrom', 'validUntil']:
-            if key in data['identification']:
-                xml_content += f'<cm:{key}>{data["identification"][key]}</cm:{key}>\n'
-        
-        if 'usageProfile' in data['identification']:
-            xml_content += '<cm:usageProfile href="/usageProfile/1">\n'
-            for key in ['id', 'name', 'description']:
-                if key in data['identification']['usageProfile']:
-                    xml_content += f'<cm:{key}>{data["identification"]["usageProfile"][key]}</cm:{key}>\n'
-            xml_content += '</cm:usageProfile>\n'
-        
-        for key in ['admission', 'ignorePresence', 'present', 'status', 'ptcptGrpNo', 'chrgOvdrftAcct']:
-            if key in data['identification']:
-                xml_content += f'<cm:{key}>{data["identification"][key]}</cm:{key}>\n'
-        
-        xml_content += '</cm:identification>\n'
-    
-    # Additional fields
-    for key in ['displayText', 'limit', 'memo', 'status', 'delete', 'ignorePresence', 'lpn1', 'lpn2', 'lpn3']:
-        if key in data:
-            xml_content += f'<cm:{key}>{data[key]}</cm:{key}>\n'
-    
-    xml_content += '</cm:consumerDetail>'
+    xml_content += '</cm:contractDetail>'
     return xml_content
 
 # Example usage:
@@ -146,8 +123,6 @@ data_contract = {
 #xml_output = contract_to_xml(data_contract)
 #print(xml_output)
 
-""" print("\n")
 
-xml_output = consumer_to_xml(data_consumer)
-print(xml_output) 
- """
+#xml_output = consumer_to_xml(data_consumer)
+#print(xml_output) 
