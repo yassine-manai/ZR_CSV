@@ -17,7 +17,7 @@ def data_consumer(c_id: str) -> dict:
             "contractid": c_id,
             "name": "",
             "xValidFrom": "2019-01-01+01:00",
-            "xValidUntil": "2020-12-31",
+            "xValidUntil": "2025-12-31",
             "filialId": "1001"
         },
         "person": {
@@ -25,12 +25,12 @@ def data_consumer(c_id: str) -> dict:
             "surname": "Rossi"
         },
         "identification": {
-            "ptcptType": "2",
-            "cardno": "55445",
+            "ptcptType": "6",
+            "cardno": "4475",
             "cardclass": "0",
             "identificationType": "51",
-            "validFrom": "2019-01-01+01:00",
-            "validUntil": "2020-01-01+01:00",
+            "validFrom": "2021-01-01+01:00",
+            "validUntil": "2025-01-01+01:00",
             "usageProfile": {
                 "id": "1",
                 "name": "Global Access",
@@ -76,11 +76,12 @@ data_contract = {
 contract = contract_to_xml(data_contract)
 #print(contract)
 
-contract_id = "49"
+contract_id = "2"
 
 consumer_data = data_consumer(contract_id)
 
 consumer = consumer_to_xml(consumer_data)
+
 
 #print(consumer)
 
@@ -92,7 +93,7 @@ if __name__ == "__main__":
     
     #POST METHOD
     #create_company(contract)
-    #create_participant(49,3,consumer)
+    #create_participant(2,3,consumer)
     main()
 
 

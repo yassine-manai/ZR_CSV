@@ -1,11 +1,13 @@
+import random
 from time import sleep
 import customtkinter as ctk
-from api.api_media import create_company, get_company_details
+from api.api_media import create_company, create_participant, get_company_details, get_participant
 from app.gui.pop_up import close_loading_popup, show_loading_popup
 from app.logic.business_logic import load_file_headers, load_file_columns, get_column_data
 from tkinter import filedialog, messagebox
 from app.logic.test_connect import test_zr_connection
 from config.log_config import logger
+from functions.data_format import generate_unique_random
 from functions.dict_xml import contract_to_xml
 from globals.global_vars import data_csv, footer_data
 
@@ -26,8 +28,10 @@ optional_columns = [
 ]
 
 rows_data = []
+template_id = 3
 
-print(f"hnaaa rows data \n {rows_data}")
+logger.info("Starting Process & user interface . . . ")
+
 
 class CSVLoaderApp(ctk.CTk):
     def __init__(self):
@@ -269,6 +273,70 @@ class CSVLoaderApp(ctk.CTk):
         logger.info(f"ZR data saved: {footer_data}")
         messagebox.showinfo("Success", "ZR Data saved successfully!")
 
+
+    def process_participants(self,company_id, rows_data):
+        company_rows = [row for row in rows_data if row.get('Company_id') == company_id]
+        for row in company_rows:
+            participant_id = row.get('Participant_Contractid')
+            if participant_id:
+                status_code, participant_details = get_participant(company_id, participant_id)
+                if status_code != 404:
+                    logger.info(f"Participant ID {participant_id} found for Company ID {company_id}")
+                else:
+                    logger.info(f"Participant ID {participant_id} not found for Company ID {company_id}. Creating new participant . . . ")
+                    data_consumer = self.create_participant_data(row, company_id)
+                    consumer_xml = contract_to_xml(data_consumer)                    
+                    status_code, result = create_participant(company_id, template_id, consumer_xml)
+                    if status_code == 201:
+                        logger.info(f"Participant ID {participant_id} created successfully for Company ID {company_id}")
+                    else:
+                        logger.error(f"Failed to create Participant ID {participant_id} for Company ID {company_id}. Status code: {status_code}")
+    def create_participant_data(self, row, company_id):
+        possible_numbers = set(range(1001))
+        card_nbm = generate_unique_random(possible_numbers)
+        
+        return {
+            "consumer": {
+                "contractid": company_id,
+                "name": "",
+                "xValidFrom": row.get('Participant_ValidFrom', '1900-01-01+01:00'),
+                "xValidUntil": row.get('Participant_ValidUntil', '2025-01-01+01:00'),
+                "filialId": row.get('Participant_FilialId', '7077')
+            },
+            "person": {
+                "firstName": row.get('Participant_Firstname', ''),
+                "surname": row.get('Participant_Surname', '')
+            },
+            "identification": {
+                "ptcptType": row.get('Participant_Type', '3'),
+                "cardno": card_nbm,
+                "cardclass": row.get('Participant_Cardclass', '0'),
+                "identificationType": row.get('Participant_IdentificationType', '51'),
+                "validFrom": row.get('Participant_ValidFrom', '2020-01-01+01:00'),
+                "validUntil": row.get('Participant_ValidUntil', '2025-01-01+01:00'),
+                "usageProfile": {
+                    "id": "1",
+                    "name": "   ",
+                    "description": ""
+                },
+                "admission": "",
+                "ignorePresence": row.get('Participant_IgnorePresence', '0'),
+                "present": row.get('Participant_Present', 'false'),
+                "status": row.get('Participant_Status', '0'),
+                "ptcptGrpNo": row.get('Participant_GrpNo', '-1'),
+                "chrgOvdrftAcct": row.get('Participant_ChrgOvdrftAcct', '0')
+            },
+            "displayText": row.get('Participant_DisplayText', '-1'),
+            "limit": row.get('Participant_Limit', '9999900'),
+            "memo": "Note1",
+            "status": row.get('Participant_Status', '0'),
+            "delete": row.get('Participant_Delete', '0'),
+            "ignorePresence": row.get('Participant_IgnorePresence', '0'),
+            "lpn1": row.get('Participant_LPN1', 'NOLPN'),
+            "lpn2": row.get('Participant_LPN2', 'NOLPN'),
+            "lpn3": row.get('Participant_LPN3', 'NOLPN')
+        }
+        
     def save_data(self):
         global data_csv, rows_data
         file_path = self.path_entry.get()
@@ -304,7 +372,9 @@ class CSVLoaderApp(ctk.CTk):
             status_code, company_details = get_company_details(company_id)
             if status_code != 404:
                 logger.info(f"Company ID {company_id} found")
-                #logger.info(f"Company Detail : {company_details}")
+                
+                # Process participants for existing company
+                self.process_participants(company_id, rows_data)
             else:
                 logger.info(f"Company ID {company_id} not found")
                 
@@ -336,25 +406,9 @@ class CSVLoaderApp(ctk.CTk):
                     
                     if status_code == 201:
                         logger.info(f"Company ID {company_id} created successfully")
+                        # Process participants for newly created company
+                        self.process_participants(company_id, rows_data)
                     else:
                         logger.error(f"Failed to create Company ID {company_id}. Status code: {status_code}")
 
-
-        sleep(10)
-        
-        
-            
-            
-
-        # Populate the data_csv dictionary with new data
-        data_csv['template_id'] = self.template_entry.get()
-        data_csv['file_path'] = file_path
-        data_csv['no_headers'] = self.no_headers_var.get()
-        data_csv['mandatory_fields'] = [(label, column) for label, column in selected_columns if label in mandatory_columns]
-        data_csv['optional_fields'] = [(label, column) for label, column in selected_columns if label not in mandatory_columns]
-        data_csv['rows_data'] = rows_data
-        
-
-        logger.info(f"Data saved")
-        #messagebox.showinfo("Success", "Data saved successfully!")
-        
+    

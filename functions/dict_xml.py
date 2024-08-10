@@ -79,7 +79,7 @@ def consumer_to_xml(data):
     xml_content += '</cm:consumerDetail>'
     return xml_content
 
-""" # Example usage:
+# Example usage:
 data_consumer = {
     "consumer": {
         "contractid": "2",
@@ -143,12 +143,11 @@ data_contract = {
     }
 }
 
-xml_output = contract_to_xml(data_contract)
-print(xml_output)
+#xml_output = contract_to_xml(data_contract)
+#print(xml_output)
 
-print("\n")
+""" print("\n")
 
 xml_output = consumer_to_xml(data_consumer)
 print(xml_output) 
-
-"""
+ """
