@@ -42,3 +42,5 @@ def Update_participant(company_id: int, participant_id: int, data: str) -> Tuple
 def Update_company(company_id: int, data: str) -> Tuple[int, dict]:
     logger.debug(f"Upddating company {company_id}  ------ to {data}")
     return make_request("PUT", f"{url_api}/contracts/{company_id}/detail", data=data)
+
+
