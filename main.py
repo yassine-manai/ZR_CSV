@@ -7,8 +7,6 @@ def main():
     app.mainloop()
     
     
-    
-    
 
 def data_consumer(c_id: int) -> dict:
     return {
@@ -74,6 +72,10 @@ consumer = consumer_to_xml(consumer_data)
 
 
 if __name__ == "__main__":
+    
+    main()
+
+
     #GET METHOD
     #get_company_details(49)
     #check_participant(2,231)
@@ -81,7 +83,6 @@ if __name__ == "__main__":
     #POST METHOD
     #create_company(contract)
     #create_participant(2,3,consumer)
-    #main()
     
     print("--------------------------------")
 
@@ -102,15 +103,15 @@ if __name__ == "__main__":
     validated_contract = Company_validation(**data_contract)    
     xml_output = contract_to_xml(validated_contract.dict())
         
-    #print(f"Validated Contract {validated_contract} \n")
-    #print(f"XML Contract {xml_output}")
+    print(f"Validated Contract {validated_contract} \n")
+    print(f"XML Contract {xml_output}")
 
 
     consumer_data = data_consumer(contract_id)
     validated_consumer = Consumer_validation(**consumer_data)    
-    consumer = contract_to_xml(validated_consumer.dict())
+    consumer = consumer_to_xml(validated_consumer.dict())
         
-    print(f"Validated Contract {validated_consumer} \n")
-    print(f"XML Consumer {consumer}")
+    #print(f"Validated Contract {validated_consumer} \n")
+    #print(f"XML Consumer {consumer}")
 
 

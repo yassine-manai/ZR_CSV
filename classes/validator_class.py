@@ -3,10 +3,15 @@
 from datetime import datetime
 from typing import Optional
 from pydantic import BaseModel, field_validator, model_validator
+from globals.global_vars import glob_vals
+from config.log_config import logger
+from dateutil.parser import parse, ParserError
+
+date_formats = ["%d-%m-%Y", "%d.%m.%Y", "%d:%m:%Y", "%Y-%m-%d", "%Y/%m/%d", "%d/%m/%Y"]
 
 
 class Company_validation(BaseModel):
-
+    
     # Mandatory fields
     id: int
     name: str
@@ -15,7 +20,7 @@ class Company_validation(BaseModel):
     
     # Optional fields
     xValidFrom: Optional[str] = ''
-    filialId: Optional[str] = ''
+    filialId: Optional[int] = ''
     surname: Optional[str] = ''
     phone1: Optional[str] = ''
     email1: Optional[str] = ''
@@ -27,13 +32,20 @@ class Company_validation(BaseModel):
 
     @field_validator('id', 'filialId', mode='before')
     def validate_positive_data(cls, value):
-        if value <= 1:
-            raise ValueError("Value must be greater than 1")
-        return value     
+        try:
+            value = int(value)  
+        except (ValueError, TypeError):
+            raise ValueError(f"Compagny Id must be an integer between 1 and 99999, provided {value}")
+        
+        if value <= 1 or value > 99999:
+            raise ValueError(f"Compagny Id must be between 1 and 99999, provided {value}")
+        return value
 
     
     @field_validator('xValidUntil', 'xValidFrom', mode='before')
     def validate_date_format(cls, value, info):
+        global glob_vals
+        
         non_empty_fields = ['Company_ValidUntil', 'Participant_ValidUntil']
 
         if info.field_name in non_empty_fields and value == '':
@@ -42,16 +54,15 @@ class Company_validation(BaseModel):
         if value == '':
             return value
 
-        date_formats = ["%d/%m/%Y", "%d-%m-%Y", "%d.%m.%Y", "%Y-%m-%d"]
+        try:
+            date_obj = parse(value, fuzzy=False)
 
-        for fmt in date_formats:
-            try:
-                date_obj = datetime.strptime(value, fmt)
-                return date_obj.strftime("%Y-%m-%d")
-            except ValueError:
-                continue
+            formatted_date = date_obj.strftime(glob_vals['date_format_val'])
+            return formatted_date
+        
+        except (ParserError, ValueError) as e:
+            raise ValueError(f"Date format for '{value}' is not supported or invalid: {str(e)}")
 
-        raise ValueError(f"Date format for '{value}' is not supported")
 
     @model_validator(mode='before')
     def check_mandatory_fields(cls, values):
@@ -67,7 +78,6 @@ class Company_validation(BaseModel):
 
 
 class Consumer_validation(BaseModel):
-
     # Mandatory fields
     id: int
     firstName: str
@@ -79,8 +89,8 @@ class Consumer_validation(BaseModel):
     # Optional fields
     xValidFrom: Optional[str] = ''
     xValidUntil: Optional[str] = ''
-    filialId: Optional[int] = ''
-    ptcptType: Optional[int] = ''
+    filialId: Optional[int] = 7001
+    ptcptType: Optional[int] = 2
     cardclass: Optional[str] = ''
     identificationType: Optional[str] = ''
     validFrom: Optional[str] = ''
@@ -88,8 +98,8 @@ class Consumer_validation(BaseModel):
     admission: Optional[str] = ''
     ignorePresence: Optional[str] = ''
     present: Optional[str] = ''
-    status: Optional[int] = ''
-    ptcptGrpNo: Optional[int] = ''    
+    status: Optional[int] = 0
+    ptcptGrpNo: Optional[int] = None    
     displayText: Optional[str] = ''
     memo: Optional[str] = ''   
     delete: Optional[str] = ''
@@ -97,27 +107,34 @@ class Consumer_validation(BaseModel):
     lpn3: Optional[str] = ''
 
 
-    @field_validator('id', 'filialId', 'ptcptType', 'status', 'ptcptGrpNo', mode='before')
-    def validate_positive_int(cls, value):
-        if value is not None and value <= 1:
-            raise ValueError("Value must be greater than 1")
+    @field_validator('id', 'filialId', mode='before')
+    def validate_positive_data(cls, value):
+        try:
+            value = int(value)  
+        except (ValueError, TypeError):
+            raise ValueError(f"Compagny Id must be an integer between 1 and 99999, provided {value}")
+        
+        if value <= 1 or value > 99999:
+            raise ValueError(f"Compagny Id must be between 1 and 99999, provided {value}")
         return value
+
 
     @field_validator('xValidUntil', 'xValidFrom', 'validFrom', 'validUntil', mode='before')
     def validate_date_format(cls, value, info):
         if value == '':
-            return value
+            
+            return KeyError
 
-        date_formats = ["%d/%m/%Y", "%d-%m-%Y", "%d.%m.%Y", "%Y-%m-%d"]
+        try:
+            date_obj = parse(value, fuzzy=False)
 
-        for fmt in date_formats:
-            try:
-                date_obj = datetime.strptime(value, fmt)
-                return date_obj.strftime("%Y-%m-%d")
-            except ValueError:
-                continue
+            formatted_date = date_obj.strftime(glob_vals['date_format_val'])
+            return formatted_date
+        
+        except (ParserError, ValueError) as e:
+            raise ValueError(f"Date format for '{value}' is not supported or invalid: {str(e)}")
 
-        raise ValueError(f"Date format for '{value}' is not supported")
+
 
     @model_validator(mode='before')
     def check_mandatory_fields(cls, values):
@@ -128,4 +145,13 @@ class Consumer_validation(BaseModel):
                 raise ValueError(f"The field {field} is mandatory and cannot be empty.")
 
         return values
+    
+    
+    
+    @field_validator('ptcptType', mode='before')
+    def validate_ptcpt_type(cls, value: int):
+        if value not in [2, 6]:                
+                raise ValueError(f"Participant Type must be either 2 or 6, provided is {value}")
+        return value
+    
     

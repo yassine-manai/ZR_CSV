@@ -54,7 +54,7 @@ def load_file_columns(path):
     
     
 
-def get_columns_data(path, *columns):
+def get_data(path, *columns):
     if not os.path.exists(path):
         return None, "File does not exist."
     
@@ -77,7 +77,7 @@ def get_columns_data(path, *columns):
             if missing_columns:
                 return None, f"Missing columns: {', '.join(missing_columns)}"
             
-            data = [list(row[col] for col in columns) for row in reader]  # Convert to list
+            data = [list(row[col] for col in columns) for row in reader]  
             print(type(data))
             print(f"{data}")
             return data, None

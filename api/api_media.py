@@ -2,10 +2,21 @@ from typing import Tuple
 from functions.check_error import handle_api_error
 from functions.request_api import make_request
 from config.log_config import logger
+from globals.global_vars import zr_data
 
-url_api = "https://193.95.82.173:8709/CustomerMediaWebService"
+
+#https://193.95.82.173:8709/CustomerMediaWebService/contracts
+ip_fix = "193.95.82.173:8709"
 
 
+ip_url = zr_data.get("zr_ip")
+port = zr_data.get("zr_port")
+username = zr_data.get("username")
+password = zr_data.get("password")
+
+
+url_api = f"https://{ip_fix}/CustomerMediaWebService"
+#logger.debug(url_api)
 
 # Company Section
 @handle_api_error
@@ -44,3 +55,9 @@ def Update_company(company_id: int, data: str) -> Tuple[int, dict]:
     return make_request("PUT", f"{url_api}/contracts/{company_id}/detail", data=data)
 
 
+
+
+# GET VERSION
+@handle_api_error
+def get_company_version(zr_data) -> Tuple[int, dict]:
+    return make_request("GET", f"{url_api}/version")

@@ -8,7 +8,7 @@ data_csv: dict = {
     'rows_data':""
 }
 
-footer_data: dict = {
+zr_data: dict = {
     'zr_ip': "127.0.0.1",
     'zr_port': "8000",
     'username': "6",
@@ -23,8 +23,13 @@ token_data: dict = {
 }
 
 
+glob_vals : dict  = {
+    'season_parker':"1",
+    'pmvc':"2",
+    'cmp':"3",
+    'date_format_val':"%d-%m-%Y"
+}
 
-template_id = 1
 
 
 

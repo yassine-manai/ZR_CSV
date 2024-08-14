@@ -1,17 +1,15 @@
-import random
 import threading
-from time import sleep
 import customtkinter as ctk
-from tkinter import filedialog, messagebox
+from tkinter import StringVar, filedialog, messagebox
 from api.api_media import create_company, create_participant, get_company_details, get_participant
-from app.gui.pop_up import close_loading_popup, create_loading_popup, show_loading_popup
-from app.logic.business_logic import load_file_headers, load_file_columns, get_column_data
+from app.gui.pop_up import close_loading_popup, create_loading_popup
+from app.logic.business_logic import load_file_headers, load_file_columns, get_data
 from app.logic.test_connect import test_zr_connection
-from classes.validator_class import Company_validation
+from classes.validator_class import Company_validation, Consumer_validation
 from config.log_config import logger
 from functions.data_format import generate_unique_random
 from functions.dict_xml import consumer_to_xml, contract_to_xml
-from globals.global_vars import data_csv, footer_data, template_id
+from globals.global_vars import data_csv, zr_data, glob_vals
 
 ctk.set_appearance_mode("Dark")
 ctk.set_default_color_theme("blue")
@@ -29,6 +27,14 @@ optional_columns = [
     "Participant_DisplayText", "Participant_Status", "Participant_LPN2", "Participant_LPN3"
 ]
 
+date_format_dict = {
+    "dd-mm-yyyy": "%d-%m-%Y",
+    "dd.mm.yyyy": "%d.%m.%Y",
+    "dd:mm:yyyy": "%d:%m:%Y",
+    "yyyy-mm-dd": "%Y-%m-%d"
+}
+
+
 rows_data = []
 
 logger.info("Starting Process & user interface . . . ")
@@ -39,11 +45,7 @@ class CSVLoaderApp(ctk.CTk):
 
         self.title("Customer Media Processor")
         self.geometry("1300x700")
-        try:
-            self.wm_iconbitmap("app/assets/icon.bmp")
-        except Exception as e:
-            logger.error(f"Error setting icon: {e}")
-            pass
+
 
         self.optional_field_count = 0
         self.optional_fields = []
@@ -61,12 +63,13 @@ class CSVLoaderApp(ctk.CTk):
         self.create_sync_button()
         self.create_footer_frame()
 
+    
     def create_file_input_frame(self):
         file_data_frame = ctk.CTkFrame(self.main_frame)
-        file_data_frame.grid(row=0, column=0, padx=10, pady=10, sticky="ew")
-        file_data_frame.grid_columnconfigure(1, weight=1)
+        file_data_frame.grid(row=0, column=0, padx=20, pady=20, sticky="nsew")
 
-        ctk.CTkLabel(file_data_frame, text="File Path:").grid(row=0, column=0, padx=5, pady=5)
+        # File path input section
+        ctk.CTkLabel(file_data_frame, text="File Path:").grid(row=0, column=0, padx=5, pady=5, sticky="e")
         self.path_entry = ctk.CTkEntry(file_data_frame, width=400)
         self.path_entry.grid(row=0, column=1, padx=5, pady=5, sticky="ew")
 
@@ -80,43 +83,66 @@ class CSVLoaderApp(ctk.CTk):
         self.load_data_button = ctk.CTkButton(file_data_frame, text="Load Data", command=self.load_file_data)
         self.load_data_button.grid(row=0, column=4, padx=5, pady=5)
 
-        self.template1_var = ctk.BooleanVar(value=False)
-        self.template1_check = ctk.CTkCheckBox(file_data_frame, text="Template ID Season Parker : 1 ", 
-                                               variable=self.template1_var, command=lambda: self.update_template_id(1))
-        self.template1_check.grid(row=1, column=0, padx=5, pady=5)
-        
-        self.template2_var = ctk.BooleanVar(value=False)
-        self.template2_check = ctk.CTkCheckBox(file_data_frame, text="Template ID PMVC : 2", 
-                                               variable=self.template2_var, command=lambda: self.update_template_id(2))
-        self.template2_check.grid(row=1, column=1, padx=5, pady=5)
-        
-        self.template3_var = ctk.BooleanVar(value=False)
-        self.template3_check = ctk.CTkCheckBox(file_data_frame, text="Template ID CPM : 3", 
-                                               variable=self.template3_var, command=lambda: self.update_template_id(3))
-        self.template3_check.grid(row=1, column=2, padx=5, pady=5)
+        # Template ID section
+        ctk.CTkLabel(file_data_frame, text="Template ID:").grid(row=1, column=0, padx=5, pady=5, sticky="w")
 
-    def update_template_id(self, selected_id):
-        global template_id
-        template_id = selected_id
+        # Season Parker ID
+        ctk.CTkLabel(file_data_frame, text="Season Parker ID:").grid(row=1, column=1, padx=5, pady=5, sticky="e")
+        self.template1_var = StringVar(value="1")
+        self.template1_entry = ctk.CTkEntry(file_data_frame, textvariable=self.template1_var, width=50)
+        self.template1_entry.grid(row=1, column=2, padx=5, pady=5, sticky="ew")
+
+        # PMVC ID
+        ctk.CTkLabel(file_data_frame, text="PMVC ID:").grid(row=1, column=3, padx=5, pady=5, sticky="e")
+        self.template2_var = StringVar(value="2")
+        self.template2_entry = ctk.CTkEntry(file_data_frame, textvariable=self.template2_var, width=50)
+        self.template2_entry.grid(row=1, column=4, padx=5, pady=5, sticky="ew")
+
+        # CPM ID
+        ctk.CTkLabel(file_data_frame, text="CPM ID:").grid(row=1, column=5, padx=5, pady=5, sticky="e")
+        self.template3_var = StringVar(value="3")
+        self.template3_entry = ctk.CTkEntry(file_data_frame, textvariable=self.template3_var, width=50)
+        self.template3_entry.grid(row=1, column=6, padx=5, pady=5, sticky="ew")
+
+        # Date Format
+        ctk.CTkLabel(file_data_frame, text="Date Format:").grid(row=1, column=7, padx=5, pady=5, sticky="e")
+        self.date_format_var = StringVar(value="yyyy-mm-dd")
+        self.date_format_dropdown = ctk.CTkOptionMenu(file_data_frame, variable=self.date_format_var,
+                                                    values=list(date_format_dict.keys()), width=100,
+                                                    command=self.update_date_format)
         
-        self.template1_var.set(False)
-        self.template2_var.set(False)
-        self.template3_var.set(False)
-        
-        if selected_id == 1:
-            self.template1_var.set(True)
-            self.template2_var.set(False)
-            self.template3_var.set(False)
-        if selected_id == 2:
-            self.template2_var.set(True)
-            self.template1_var.set(False)
-            self.template3_var.set(False)
-        if selected_id == 3:
-            self.template3_var.set(True)
-            self.template1_var.set(False)
-            self.template2_var.set(False)
-        
-        logger.info(f"Template ID updated to: {template_id}")
+        self.date_format_dropdown.grid(row=1, column=8, padx=5, pady=5, sticky="ew")
+
+        file_data_frame.grid_columnconfigure((0, 1, 2, 3, 4, 5, 6, 7, 8, 9), weight=1)
+
+        # Initialize global variable values
+        self.update_global_values()
+
+    def update_date_format(self, selected_format):
+        global glob_vals
+        glob_vals['date_format_val'] = date_format_dict.get(selected_format, '%d-%m-%Y')
+        logger.info(f"Date Format updated to: {glob_vals['date_format_val']}")
+        self.update_template_id()  
+
+    def update_global_values(self):
+        global glob_vals
+        selected_format = self.date_format_var.get()
+        glob_vals['date_format_val'] = date_format_dict.get(selected_format, '%d-%m-%Y')
+        glob_vals['season_parker'] = self.template1_var.get()
+        glob_vals['pmvc'] = self.template2_var.get()
+        glob_vals['cmp'] = self.template3_var.get()
+
+    def update_template_id(self):
+        global glob_vals
+        self.update_global_values()
+        try:
+            template_id1 = int(glob_vals['season_parker'])
+            template_id2 = int(glob_vals['pmvc'])
+            template_id3 = int(glob_vals['cmp'])
+            logger.info(f"------------ {glob_vals['date_format_val']}")
+            logger.info(f"Template ID updated to: {template_id1} -- {template_id2} -- {template_id3}")
+        except ValueError:
+            logger.error("Error: Invalid template ID value.")
 
     def create_mandatory_fields_frame(self):
         mandatory_frame = ctk.CTkFrame(self.main_frame)
@@ -131,9 +157,9 @@ class CSVLoaderApp(ctk.CTk):
             col = (i % 4) * 2
 
             ctk.CTkLabel(mandatory_frame, text=label).grid(row=row, column=col, padx=5, pady=5, sticky="w")
-            dropdown = ctk.CTkOptionMenu(mandatory_frame, width=150, command=self.check_mandatory_fields)
+            dropdown = ctk.CTkOptionMenu(mandatory_frame, width=150,values="", command=self.check_mandatory_fields)
             dropdown.grid(row=row, column=col+1, padx=5, pady=5, sticky="ew")
-            dropdown.set("No Column selected")
+            dropdown.set("- - - - - - - - - ")
             self.dropdowns.append((label, dropdown))
 
     def create_optional_fields_frame(self):
@@ -156,7 +182,7 @@ class CSVLoaderApp(ctk.CTk):
         add_button = ctk.CTkButton(optional_frame, text="+", width=30, command=self.add_optional_field)
         add_button.grid(row=1, column=2, padx=5, pady=5)
 
-        self.optional_fields_container = ctk.CTkFrame(optional_frame)
+        self.optional_fields_container = ctk.CTkFrame(optional_frame,height=0)
         self.optional_fields_container.grid(row=2, column=0, columnspan=3, padx=5, pady=5, sticky="ew")
         self.optional_fields_container.grid_columnconfigure((0, 1, 2), weight=1)
 
@@ -173,13 +199,6 @@ class CSVLoaderApp(ctk.CTk):
         footer_frame.grid(row=3, column=0, padx=10, pady=10, sticky="ew")
         footer_frame.grid_columnconfigure((0, 1, 2, 3, 4, 5, 6, 7), weight=1)  
 
-        zr_def_values = {
-            "zr_ip": "127.0.0.1",
-            "zr_port": "8443",
-            "username": "6",
-            "password": "4711"
-        }
-
         entries = [
             ("ZR IP", "zr_ip"),
             ("ZR Port", "zr_port"),
@@ -190,11 +209,11 @@ class CSVLoaderApp(ctk.CTk):
         for i, (label, attr) in enumerate(entries):
             ctk.CTkLabel(footer_frame, text=label).grid(row=0, column=2 * i, padx=5, pady=5, sticky="w")
             entry = ctk.CTkEntry(footer_frame)
-            entry.insert(0, zr_def_values.get(attr, ""))  
+
+            entry.insert(0, zr_data.get(attr, ""))  
             entry.grid(row=0, column=2 * i + 1, padx=5, pady=5, sticky="ew")
             setattr(self, attr, entry)
-            if attr == "password":
-                entry.configure(show="*")
+
 
         self.confirm_button = ctk.CTkButton(footer_frame, text="Test & Confirm", command=self.save_zr_data)
         self.confirm_button.grid(row=0, column=8, padx=5, pady=10, sticky="e")
@@ -252,6 +271,8 @@ class CSVLoaderApp(ctk.CTk):
         if any(field[0] == field_name for field in self.optional_fields):
             messagebox.showwarning("Warning", "This optional field has already been added.")
             return
+        
+
 
         index = len(self.optional_fields)
         row = index // 3
@@ -289,27 +310,63 @@ class CSVLoaderApp(ctk.CTk):
         self.optional_field_dropdown.set("No optional field" if len(self.optional_fields) == 0 else current_options[1])
 
     def check_mandatory_fields(self, *args):
-        all_selected = all(dropdown.get() != "No Column selected" for _, dropdown in self.dropdowns)
+        # Check if all dropdowns have valid selections
+        all_selected = all(
+            dropdown.get().strip() not in ["No Column selected", "", " ", "- - - - - - - - - "] for _, dropdown in self.dropdowns
+        )
+
         self.sync_button.configure(state="normal" if all_selected else "disabled")
-
-    def save_zr_data(self):
-        global footer_data
-
-        footer_data['zr_ip'] = self.zr_ip.get()
-        footer_data['zr_port'] = self.zr_port.get()
-        footer_data['username'] = self.username.get()
-        footer_data['password'] = self.password.get()
-
-        test_zr_connection()
-        logger.info(template_id)
-        logger.info(f"ZR data saved: {footer_data}")
-        messagebox.showinfo("Success", "ZR Connection Tested")
 
     def start_sync(self):
         self.loading_popup = create_loading_popup(self.master, "Syncing data...")
         threading.Thread(target=self.save_data_threaded, daemon=True).start()
      
-    def process_participants(self, company_id, rows_data, template_id):
+    def save_data_threaded(self):
+        try:
+            self.update_template_id()  
+            self.save_data()
+            # for x in lc for compagny
+            # for x in lp for ptcpt
+        finally:
+            self.close_loading_popup()
+
+    def close_loading_popup(self):
+        if hasattr(self, 'loading_popup'):
+            close_loading_popup(self.loading_popup)
+            del self.loading_popup
+
+    def save_zr_data(self):
+        global zr_data
+
+        zr_data['zr_ip'] = self.zr_ip.get().strip()
+        zr_data['zr_port'] = self.zr_port.get().strip()
+        zr_data['username'] = self.username.get().strip()
+        zr_data['password'] = self.password.get().strip()
+        
+        logger.debug(zr_data)        
+        test_zr_connection(zr_data)  
+        
+        # file as list of dict
+        rows_data = self.read_data_from_file()  
+
+        # Get unique company IDs
+        company_ids = set(row.get('Company_id') for row in rows_data if row.get('Company_id'))
+
+        # call ZR version 
+        
+        # build LIst [ compagnyobject]
+        lc=[]
+        # build list [ ptcpt object]
+        lp=[]
+        
+        # for in lc check compagny id on zr
+
+
+
+
+
+
+    def process_participants(self, company_id, rows_data, template_ids):
         possible_numbers = set(range(1001))
         logger.info(f"Processing participants for Company ID: {company_id}")
 
@@ -319,7 +376,6 @@ class CSVLoaderApp(ctk.CTk):
         for row in company_rows:
             participant_id = row.get('Participant_Contractid')
             logger.debug(f"Processing Participant ID: {participant_id}")
-
 
             if participant_id:
                 status_code, participant_details = get_participant(company_id, participant_id)
@@ -332,44 +388,46 @@ class CSVLoaderApp(ctk.CTk):
                     # Create participant data
                     card_nbm = generate_unique_random(possible_numbers)
                     
-                    
                     data_consumer = {
                         "id": participant_id,
                         "contractid": company_id,
-                        "xValidFrom": row.get('Participant_ValidFrom', '2000-01-01+01:00'),
-                        "xValidUntil": row.get('Participant_ValidUntil', '2025-01-01+01:00'),
-                        "filialId": row.get('Participant_FilialId', '7077'),
-
+                        "xValidFrom": row.get('Participant_ValidFrom', '2000-01-01'),
+                        "xValidUntil": row.get('Participant_ValidUntil', '2025-01-01'),
+                        "filialId": row.get('Participant_FilialId', 7077),
                         "firstName": row.get('Participant_Firstname', ''),
                         "surname": row.get('Participant_Surname', ''),
-                    
                         "ptcptType": row.get('Participant_Type', '3'),
                         "cardno": card_nbm,
                         "cardclass": row.get('Participant_Cardclass', '0'),
                         "identificationType": row.get('Participant_IdentificationType', '51'),
-                        "validFrom": row.get('Participant_ValidFrom', '2020-01-01+01:00'),
-                        "validUntil": row.get('Participant_ValidUntil', '2025-01-01+01:00'),
-                
+                        "validFrom": row.get('Participant_ValidFrom', '2020-01-01'),
+                        "validUntil": row.get('Participant_ValidUntil', '2025-01-01'),
                         "admission": "",
                         "ignorePresence": row.get('Participant_IgnorePresence', '0'),
                         "present": row.get('Participant_Present', 'false'),
                         "status": row.get('Participant_Status', '0'),
                         "ptcptGrpNo": row.get('Participant_GrpNo', '-1'),
-
                         "displayText": row.get('Participant_DisplayText', '-1'),
                         "limit": row.get('Participant_Limit', '9999900'),
                         "memo": "Note1",
-                        "status": row.get('Participant_Status', '0'),
                         "delete": row.get('Participant_Delete', '0'),
-                        "ignorePresence": row.get('Participant_IgnorePresence', '0'),
                         "lpn1": row.get('Participant_LPN1', 'NOLPN'),
                         "lpn2": row.get('Participant_LPN2', 'NOLPN'),
                         "lpn3": row.get('Participant_LPN3', 'NOLPN'),
                     }
 
                     logger.debug(data_consumer)
-                    consumer_xml = consumer_to_xml(data_consumer)  
-                    logger.debug(f"Participant data: {data_consumer}")
+                    validated_consumer = Consumer_validation(**data_consumer)   
+                    consumer_xml = consumer_to_xml(validated_consumer.dict())
+                    logger.debug(f"Participant data: {consumer_xml}")
+                    
+                    ptcpt_type = row.get('Participant_Type', 3)
+                    if ptcpt_type == 2:
+                        template_id = template_ids["season_parker"]
+                    if ptcpt_type == 6:
+                        template_id = template_ids["pmvc"]
+                    else:
+                        template_id = template_ids.get("default", template_ids["season_parker"])
                     
                     status_code, result = create_participant(company_id, template_id, consumer_xml)
                     
@@ -378,23 +436,14 @@ class CSVLoaderApp(ctk.CTk):
                     else:
                         logger.error(f"Failed to create Participant ID {participant_id} for Company ID {company_id}. Status code: {status_code}")
 
-    def save_data_threaded(self):
-        try:
-            self.save_data()
-        finally:
-            self.close_loading_popup()
-
-    def close_loading_popup(self):
-        if hasattr(self, 'loading_popup'):
-            close_loading_popup(self.loading_popup)
-            del self.loading_popup
-
     def save_data(self):
-        global data_csv, rows_data
+        global data_csv, rows_data, glob_vals
         file_path = self.path_entry.get()
 
+        template_ids = glob_vals
+
         logger.info("Starting api call process . . . ")
-        
+
         data_csv = {}
         rows_data = []
         unique_company_ids = set()
@@ -404,7 +453,7 @@ class CSVLoaderApp(ctk.CTk):
 
         column_indices = [self.dropdowns[0][1].cget("values").index(column) - 1 for _, column in selected_columns]
 
-        column_data, error = get_column_data(file_path, *column_indices)
+        column_data, error = get_data(file_path, *column_indices)
 
         if error:
             logger.error(f"Failed to retrieve column data: {error}")
@@ -429,7 +478,7 @@ class CSVLoaderApp(ctk.CTk):
                 logger.info(f"Company ID {company_id} found")
                 
                 # Process participants for existing company
-                self.process_participants(company_id, rows_data, template_id)
+                self.process_participants(company_id, rows_data, template_ids)
             else:
                 logger.info(f"Company ID {company_id} not found")
                 
@@ -438,38 +487,34 @@ class CSVLoaderApp(ctk.CTk):
                 
                 if company_data:
                     data_contract = {
-                        "contract": {
-                            "id": company_data.get('Company_id'),
+                            "id": int(company_data.get('Company_id')),
                             "name": company_data.get('Company_Name'),
-                            "xValidFrom": company_data.get('Company_ValidFrom', 'NOVALIDFROM'),
+                            "xValidFrom": company_data.get('Company_ValidFrom', ''),
                             "xValidUntil": company_data.get('Company_ValidUntil', '2025-12-31'),
-                            "filialId": '7077'
-                        },
-                        "person": {
+                            "filialId": 7077,
                             "surname": company_data.get('Company_Surname', 'NOSURNAME'),
                             "phone1": company_data.get('Company_phone1', 'NONUMBER'),
-                            "email1": company_data.get('Company_email1', 'NOEMAIL')
-                        },
-                        "stdAddr": {
+                            "email1": company_data.get('Company_email1', 'NOEMAIL'),
                             "street": company_data.get('Company_Street', 'NOSTREET'),
                             "town": company_data.get('Company_Town', 'NOTOWN'),
                             "postbox": company_data.get('Company_Postbox', 'NOPOSTBOX')
                         }
-                    }
                     
-                    contract_xml = contract_to_xml(data_contract)
-                    validated_data = Company_validation(**contract_xml)
+                    
+                    logger.debug(data_contract)
+                    validated_company = Company_validation(**data_contract)   
+                    company_xml = contract_to_xml(validated_company.dict())
+                    logger.debug(f"Participant data: {company_xml}")
 
-                    status_code, result = create_company(validated_data)
+                    status_code, result = create_company(company_xml)
                     logger.debug(f"Status code : {status_code}")
                     
                     if status_code == 201:
                         logger.info(f"Company ID {company_id} created successfully")
                         # Process participants for newly created company
-                        self.process_participants(company_id, rows_data, template_id)
+                        self.process_participants(company_id, rows_data, template_ids)
                     else:
                         logger.error(f"Failed to create Company ID {company_id}. Status code: {status_code}")
                         
         logger.info("Data save process completed")
         messagebox.showinfo("Success", "Data processing completed successfully!")
-
