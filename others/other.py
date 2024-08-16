@@ -324,3 +324,18 @@ class CSVLoaderApp:
         }
         logger.info("Data saved:", self.local_data)
         messagebox.showinfo("Success", "Data saved successfully!")
+
+
+
+---- 14 - 8 
+
+        for company_id in company_ids:
+            status_code, company_details = self.get_company(company_id)  
+            if status_code == 404:
+                logger.info(f"Company ID {company_id} not found. Creating new company...")
+            else:
+                logger.info(f"Company ID {company_id} found.")
+
+            template_ids = self.get_template_ids()  
+            self.process_participants(company_id, rows_data, template_ids)
+            

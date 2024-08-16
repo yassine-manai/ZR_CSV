@@ -3,7 +3,7 @@ import customtkinter as ctk
 from tkinter import StringVar, filedialog, messagebox
 from api.api_media import create_company, create_participant, get_company_details, get_participant
 from app.gui.pop_up import close_loading_popup, create_loading_popup
-from app.logic.business_logic import load_file_headers, load_file_columns, get_data
+from app.logic.business_logic import load_file_headers, load_file_columns, get_data, read_data
 from app.logic.test_connect import test_zr_connection
 from classes.validator_class import Company_validation, Consumer_validation
 from config.log_config import logger
@@ -34,6 +34,11 @@ date_format_dict = {
     "yyyy-mm-dd": "%Y-%m-%d"
 }
 
+mapdict={
+    "Company_id": "id"
+    
+    
+}
 
 rows_data = []
 
@@ -194,6 +199,36 @@ class CSVLoaderApp(ctk.CTk):
         self.sync_button = ctk.CTkButton(sync_frame, text="Sync", command=self.start_sync, state="disabled")
         self.sync_button.grid(row=0, column=0, padx=5, pady=5, sticky="e")
 
+    def missoulist(self):
+        file_path = self.path_entry.get()
+        file_data = read_data(file_path)  
+        print("--------------------- CSV FILE DATA--------------------",type(file_data))
+        print(file_data)
+        
+        
+        mymappingdict={}
+        for label, dropdown in self.dropdowns:
+            if dropdown.get():
+                mymappingdict[label]=dropdown.get() 
+            else:
+                mymappingdict[label]="NOSELECTED"
+                
+        for name, header in self.optional_fields:
+            mymappingdict[name]=header
+
+        print("--------------------- SELECT FIELDS --------------------",type(mymappingdict))
+        print(mymappingdict)
+        
+        #print("--------------------- SELECT FILD MAPPING--------------------",type())
+        #print()
+        
+        
+        
+        
+        
+        
+        
+        
     def create_footer_frame(self):
         footer_frame = ctk.CTkFrame(self.main_frame)
         footer_frame.grid(row=3, column=0, padx=10, pady=10, sticky="ew")
@@ -215,7 +250,8 @@ class CSVLoaderApp(ctk.CTk):
             setattr(self, attr, entry)
 
 
-        self.confirm_button = ctk.CTkButton(footer_frame, text="Test & Confirm", command=self.save_zr_data)
+        #self.confirm_button = ctk.CTkButton(footer_frame, text="Test & Confirm", command=self.save_zr_data)
+        self.confirm_button = ctk.CTkButton(footer_frame, text="Test & Confirm", command=self.missoulist)
         self.confirm_button.grid(row=0, column=8, padx=5, pady=10, sticky="e")
 
     def browse_file(self):
@@ -337,30 +373,53 @@ class CSVLoaderApp(ctk.CTk):
 
     def save_zr_data(self):
         global zr_data
-
+        file_path = self.path_entry.get()
+        
+        
         zr_data['zr_ip'] = self.zr_ip.get().strip()
         zr_data['zr_port'] = self.zr_port.get().strip()
         zr_data['username'] = self.username.get().strip()
         zr_data['password'] = self.password.get().strip()
         
         logger.debug(zr_data)        
-        test_zr_connection(zr_data)  
         
         # file as list of dict
-        rows_data = self.read_data_from_file()  
+        rows_data = read_data(file_path)  
 
         # Get unique company IDs
-        company_ids = set(row.get('Company_id') for row in rows_data if row.get('Company_id'))
-
+        company_ids = set(row.get('Company Number') for row in rows_data if row.get('Company Number'))
+        logger.debug(company_ids)
+        
         # call ZR version 
-        
-        # build LIst [ compagnyobject]
-        lc=[]
-        # build list [ ptcpt object]
-        lp=[]
-        
-        # for in lc check compagny id on zr
+        #test_zr_connection(zr_data)  
 
+
+        # build List [ compagnyobject]
+        lc=[]
+        for company_data in rows_data:
+            data_contract = {
+                            "id": int(company_data.get('Company_id','')),
+                            "name": company_data.get('Company_Name',''),
+                            "xValidFrom": company_data.get('Company_ValidFrom', ''),
+                            "xValidUntil": company_data.get('Company_ValidUntil', ''),
+                            "filialId": 7077,
+                            "surname": company_data.get('Company_Surname', ''),
+                            "phone1": company_data.get('Company_phone1', ''),
+                            "email1": company_data.get('Company_email1', ''),
+                            "street": company_data.get('Company_Street', ''),
+                            "town": company_data.get('Company_Town', ''),
+                            "postbox": company_data.get('Company_Postbox', '')
+                        }
+            logger.debug(data_contract)
+            validated_company = Company_validation(**data_contract)   
+            lc.append(validated_company)
+        print(validated_company)
+        
+        # build list [ ptcpt object]
+        #lp=[]
+        
+        
+        # for cmp in lc check compagny id on zr
 
 
 

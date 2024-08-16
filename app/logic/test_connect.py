@@ -1,4 +1,3 @@
-from app.gui.pop_up import create_loading_popup
 from config.log_config import logger 
 from tkinter import messagebox
 from api.api_media import get_company_version

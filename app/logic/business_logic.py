@@ -6,7 +6,8 @@ def load_file_headers(path):
         return None, "File does not exist."
 
     try:
-        delimiter = ',' or ';' if path.lower().endswith('.csv') else '|' or ';'
+        #delimiter = ',' or ';' if path.lower().endswith('.csv') else '|' or ';'
+        delimiter=detectDelimiter(path)
         with open(path, 'r') as file:
             reader = csv.reader(file, delimiter=delimiter)
             if path.lower().endswith('.PSV'):
@@ -17,6 +18,17 @@ def load_file_headers(path):
         return None, "Failed to read the file. Please ensure it's a valid CSV or PSV file."
     except Exception as e:
         return None, f"An error occurred: {str(e)}"
+
+
+def detectDelimiter(csvFile):
+    with open(csvFile, 'r') as myCsvfile:
+        header=myCsvfile.readline()
+        if header.find(";")!=-1:
+            return ";"
+        if header.find(",")!=-1:
+            return ","
+    #default delimiter (MS Office export)
+    return ";"
 
 def load_file_columns(path):
     if not os.path.exists(path):
@@ -98,3 +110,34 @@ def get_column_data(file_path, *column_indices):
         return data, None
     except Exception as e:
         return None, str(e)
+    
+    
+
+
+def read_data(path):
+    if not os.path.exists(path):
+        return None, "File does not exist."
+    
+    try:
+        if path.lower().endswith('.csv'):
+            delimiter = ','
+        elif path.lower().endswith('.psv'):
+            with open(path, 'r') as file:
+                first_line = file.readline()
+                delimiter = '|' if '|' in first_line else ';'
+        else:
+            return None, "Unsupported file format. Please use a .csv file."
+        delimiter=detectDelimiter(path)
+        print("-----------------------------")
+        
+        with open(path, 'r') as file:
+#            if noheader:
+#                reader = csv.DictReader(file, delimiter=delimiter,fieldnames)
+            reader = csv.DictReader(file, delimiter=delimiter)
+            data = [row for row in reader]
+            
+            return data
+    except csv.Error:
+        return None, "Failed to read the file. Please ensure it's a valid CSV file."
+    except Exception as e:
+        return None, f"An error occurred: {str(e)}"

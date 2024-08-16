@@ -4623,3 +4623,90 @@
 2024-08-14 14:26:39.797 | SUCCESS  | test_zr_connection:Connection established | test_connect.py:14
 2024-08-14 14:26:39.797 | DEBUG    | test_zr_connection:Version Response : {'status_code': 200, 'headers': {'Cache-Control': 'private', 'Expires': 'Thu, 01 Jan 1970 01:00:00 WAT', 'Set-Cookie': 'JSESSIONID=4B50F96DAFC1589CAEFFED4B20CE1FE9.jvm1; Path=/CustomerMediaWebService; Secure; HttpOnly', 'Content-Type': 'text/xml', 'Content-Length': '183', 'Date': 'Wed, 14 Aug 2024 13:26:49 GMT', 'Server': '----'}, 'content': '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><version xmlns="http://gsph.sub.com/cust/types"><version>1.25.0@0 (CustomerAdministrationService: 6.44.2@0) </version></version>', 'xml': <Element '{http://gsph.sub.com/cust/types}version' at 0x000001792F5F5E90>} | test_connect.py:15
 2024-08-14 14:26:39.797 | DEBUG    | test_zr_connection:Status Code Response : 200 | test_connect.py:16
+2024-08-14 15:11:56.608 | INFO     | <module>:Starting Process & user interface . . .  | main_window.py:40
+2024-08-14 15:12:00.149 | DEBUG    | browse_file:Selecting file process started... | main_window.py:222
+2024-08-14 15:12:02.989 | DEBUG    | browse_file:Selecting CSV file ... | main_window.py:225
+2024-08-14 15:12:02.990 | SUCCESS  | browse_file:CSV File Selected : C:/Users/yassi/Desktop/untitled (2).csv | main_window.py:231
+2024-08-14 15:12:44.344 | DEBUG    | save_zr_data:{'zr_ip': '127.0.0.1', 'zr_port': '8000', 'username': '6', 'password': '4711'} | main_window.py:328
+2024-08-14 15:12:44.345 | INFO     | test_zr_connection:Checking ZR connection | test_connect.py:8
+2024-08-14 15:12:44.348 | DEBUG    | make_request:Making GET request to https://193.95.82.173:8709/CustomerMediaWebService/version with headers: {'Authorization': 'Basic Njo0NzEx', 'Content-Type': 'application/xml'} | request_api.py:17
+2024-08-14 15:12:44.585 | DEBUG    | make_request:Received response [200] from https://193.95.82.173:8709/CustomerMediaWebService/version | request_api.py:23
+2024-08-14 15:12:44.586 | DEBUG    | make_request:Response content: <?xml version="1.0" encoding="UTF-8" standalone="yes"?><version xmlns="http://gsph.sub.com/cust/types"><version>1.25.0@0 (CustomerAdministrationService: 6.44.2@0) </version></version> | request_api.py:24
+2024-08-14 15:12:44.591 | SUCCESS  | test_zr_connection:Connection established | test_connect.py:14
+2024-08-14 15:12:44.591 | DEBUG    | test_zr_connection:Version Response : {'status_code': 200, 'headers': {'Cache-Control': 'private', 'Expires': 'Thu, 01 Jan 1970 01:00:00 WAT', 'Set-Cookie': 'JSESSIONID=9089E8836FCC6DFC1F13C644BF85B0F7.jvm1; Path=/CustomerMediaWebService; Secure; HttpOnly', 'Content-Type': 'text/xml', 'Content-Length': '183', 'Date': 'Wed, 14 Aug 2024 14:12:54 GMT', 'Server': '----'}, 'content': '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><version xmlns="http://gsph.sub.com/cust/types"><version>1.25.0@0 (CustomerAdministrationService: 6.44.2@0) </version></version>', 'xml': <Element '{http://gsph.sub.com/cust/types}version' at 0x0000021605AF4D60>} | test_connect.py:15
+2024-08-14 15:12:44.592 | DEBUG    | test_zr_connection:Status Code Response : 200 | test_connect.py:16
+2024-08-14 16:00:09.437 | INFO     | <module>:Starting Process & user interface . . .  | main_window.py:40
+2024-08-14 16:00:28.718 | DEBUG    | browse_file:Selecting file process started... | main_window.py:222
+2024-08-14 16:00:32.271 | DEBUG    | browse_file:Selecting CSV file ... | main_window.py:225
+2024-08-14 16:00:32.273 | SUCCESS  | browse_file:CSV File Selected : C:/Users/yassi/Desktop/untitled (2).csv | main_window.py:231
+2024-08-14 16:00:33.247 | DEBUG    | save_zr_data:{'zr_ip': '127.0.0.1', 'zr_port': '8000', 'username': '6', 'password': '4711'} | main_window.py:348
+2024-08-14 16:02:11.161 | INFO     | <module>:Starting Process & user interface . . .  | main_window.py:40
+2024-08-14 16:02:18.873 | DEBUG    | browse_file:Selecting file process started... | main_window.py:222
+2024-08-14 16:02:22.552 | DEBUG    | browse_file:Selecting CSV file ... | main_window.py:225
+2024-08-14 16:02:22.553 | SUCCESS  | browse_file:CSV File Selected : C:/Users/yassi/Desktop/untitled (2).csv | main_window.py:231
+2024-08-14 16:02:23.352 | DEBUG    | save_zr_data:{'zr_ip': '127.0.0.1', 'zr_port': '8000', 'username': '6', 'password': '4711'} | main_window.py:348
+2024-08-14 16:18:58.541 | INFO     | <module>:Starting Process & user interface . . .  | main_window.py:40
+2024-08-14 16:19:00.783 | DEBUG    | browse_file:Selecting file process started... | main_window.py:222
+2024-08-14 16:19:03.865 | DEBUG    | browse_file:Selecting CSV file ... | main_window.py:225
+2024-08-14 16:19:03.867 | SUCCESS  | browse_file:CSV File Selected : C:/Users/yassi/Desktop/untitled.csv | main_window.py:231
+2024-08-14 16:28:18.622 | INFO     | <module>:Starting Process & user interface . . .  | main_window.py:40
+2024-08-14 16:28:38.098 | DEBUG    | browse_file:Selecting file process started... | main_window.py:239
+2024-08-14 16:28:41.584 | DEBUG    | browse_file:Selecting CSV file ... | main_window.py:242
+2024-08-14 16:28:41.585 | SUCCESS  | browse_file:CSV File Selected : C:/Users/yassi/Desktop/untitled.csv | main_window.py:248
+2024-08-14 16:29:37.312 | INFO     | <module>:Starting Process & user interface . . .  | main_window.py:40
+2024-08-14 16:29:40.016 | DEBUG    | browse_file:Selecting file process started... | main_window.py:239
+2024-08-14 16:31:23.350 | DEBUG    | browse_file:Selecting CSV file ... | main_window.py:242
+2024-08-14 16:31:23.351 | SUCCESS  | browse_file:CSV File Selected : C:/Users/yassi/Desktop/convertcsv.csv | main_window.py:248
+2024-08-14 16:32:20.193 | INFO     | <module>:Starting Process & user interface . . .  | main_window.py:40
+2024-08-14 16:32:22.873 | DEBUG    | browse_file:Selecting file process started... | main_window.py:239
+2024-08-14 16:32:27.287 | DEBUG    | browse_file:Selecting CSV file ... | main_window.py:242
+2024-08-14 16:32:27.289 | SUCCESS  | browse_file:CSV File Selected : C:/Users/yassi/Desktop/convertcsv - Copie.csv | main_window.py:248
+2024-08-14 16:38:54.045 | INFO     | <module>:Starting Process & user interface . . .  | main_window.py:40
+2024-08-14 16:38:55.589 | DEBUG    | browse_file:Selecting file process started... | main_window.py:239
+2024-08-14 16:38:59.865 | DEBUG    | browse_file:Selecting CSV file ... | main_window.py:242
+2024-08-14 16:38:59.866 | SUCCESS  | browse_file:CSV File Selected : C:/Users/yassi/Desktop/convertcsv.csv | main_window.py:248
+2024-08-14 16:47:33.887 | INFO     | <module>:Starting Process & user interface . . .  | main_window.py:40
+2024-08-14 16:47:35.661 | DEBUG    | browse_file:Selecting file process started... | main_window.py:247
+2024-08-14 16:47:53.037 | DEBUG    | browse_file:Selecting CSV file ... | main_window.py:250
+2024-08-14 16:47:53.038 | SUCCESS  | browse_file:CSV File Selected : C:/Users/yassi/Desktop/convertcsv.csv | main_window.py:256
+2024-08-14 16:48:12.806 | INFO     | <module>:Starting Process & user interface . . .  | main_window.py:40
+2024-08-14 16:48:14.007 | DEBUG    | browse_file:Selecting file process started... | main_window.py:247
+2024-08-14 16:48:19.459 | DEBUG    | browse_file:Selecting CSV file ... | main_window.py:250
+2024-08-14 16:48:19.460 | SUCCESS  | browse_file:CSV File Selected : C:/Users/yassi/Desktop/convertcsv.csv | main_window.py:256
+2024-08-14 16:52:02.796 | INFO     | <module>:Starting Process & user interface . . .  | main_window.py:40
+2024-08-14 16:52:04.472 | DEBUG    | browse_file:Selecting file process started... | main_window.py:247
+2024-08-14 16:52:08.380 | DEBUG    | browse_file:Selecting CSV file ... | main_window.py:250
+2024-08-14 16:52:08.381 | SUCCESS  | browse_file:CSV File Selected : C:/Users/yassi/Desktop/convertcsv.csv | main_window.py:256
+2024-08-14 16:53:18.273 | INFO     | <module>:Starting Process & user interface . . .  | main_window.py:40
+2024-08-14 16:53:20.449 | DEBUG    | browse_file:Selecting file process started... | main_window.py:247
+2024-08-14 16:53:23.100 | DEBUG    | browse_file:Selecting CSV file ... | main_window.py:250
+2024-08-14 16:53:23.101 | SUCCESS  | browse_file:CSV File Selected : C:/Users/yassi/Desktop/convertcsv.csv | main_window.py:256
+2024-08-14 16:56:32.685 | INFO     | <module>:Starting Process & user interface . . .  | main_window.py:40
+2024-08-14 16:56:35.183 | DEBUG    | browse_file:Selecting file process started... | main_window.py:252
+2024-08-14 16:56:38.427 | DEBUG    | browse_file:Selecting CSV file ... | main_window.py:255
+2024-08-14 16:56:38.429 | SUCCESS  | browse_file:CSV File Selected : C:/Users/yassi/Desktop/convertcsv.csv | main_window.py:261
+2024-08-14 16:57:38.165 | INFO     | <module>:Starting Process & user interface . . .  | main_window.py:40
+2024-08-14 16:57:41.213 | DEBUG    | browse_file:Selecting file process started... | main_window.py:253
+2024-08-14 16:57:43.818 | DEBUG    | browse_file:Selecting CSV file ... | main_window.py:256
+2024-08-14 16:57:43.819 | SUCCESS  | browse_file:CSV File Selected : C:/Users/yassi/Desktop/convertcsv.csv | main_window.py:262
+2024-08-14 16:58:32.405 | DEBUG    | browse_file:Selecting file process started... | main_window.py:253
+2024-08-14 16:58:36.646 | DEBUG    | browse_file:Selecting CSV file ... | main_window.py:256
+2024-08-14 17:03:57.182 | DEBUG    | browse_file:Selecting file process started... | main_window.py:253
+2024-08-14 17:04:08.834 | DEBUG    | browse_file:Selecting CSV file ... | main_window.py:256
+2024-08-14 17:04:08.836 | SUCCESS  | browse_file:CSV File Selected : C:/Users/yassi/Desktop/AsteroIdea/Specs/UK_custom_media/tester_file.csv | main_window.py:262
+2024-08-14 17:06:29.388 | INFO     | <module>:Starting Process & user interface . . .  | main_window.py:40
+2024-08-14 17:06:31.067 | DEBUG    | browse_file:Selecting file process started... | main_window.py:253
+2024-08-14 17:06:33.380 | DEBUG    | browse_file:Selecting CSV file ... | main_window.py:256
+2024-08-14 17:06:33.381 | SUCCESS  | browse_file:CSV File Selected : C:/Users/yassi/Desktop/AsteroIdea/Specs/UK_custom_media/tester_file.csv | main_window.py:262
+2024-08-14 17:06:52.122 | INFO     | <module>:Starting Process & user interface . . .  | main_window.py:40
+2024-08-14 17:06:53.901 | DEBUG    | browse_file:Selecting file process started... | main_window.py:253
+2024-08-14 17:06:56.615 | DEBUG    | browse_file:Selecting CSV file ... | main_window.py:256
+2024-08-14 17:06:56.617 | SUCCESS  | browse_file:CSV File Selected : C:/Users/yassi/Desktop/AsteroIdea/Specs/UK_custom_media/tester_file.csv | main_window.py:262
+2024-08-14 17:07:22.303 | INFO     | <module>:Starting Process & user interface . . .  | main_window.py:40
+2024-08-14 17:07:24.248 | DEBUG    | browse_file:Selecting file process started... | main_window.py:253
+2024-08-14 17:07:26.646 | DEBUG    | browse_file:Selecting CSV file ... | main_window.py:256
+2024-08-14 17:07:26.648 | SUCCESS  | browse_file:CSV File Selected : C:/Users/yassi/Desktop/AsteroIdea/Specs/UK_custom_media/tester_file.csv | main_window.py:262
+2024-08-14 17:08:59.507 | INFO     | <module>:Starting Process & user interface . . .  | main_window.py:40
+2024-08-14 17:09:01.082 | DEBUG    | browse_file:Selecting file process started... | main_window.py:253
+2024-08-14 17:09:03.146 | DEBUG    | browse_file:Selecting CSV file ... | main_window.py:256
+2024-08-14 17:09:03.147 | SUCCESS  | browse_file:CSV File Selected : C:/Users/yassi/Desktop/AsteroIdea/Specs/UK_custom_media/tester_file.csv | main_window.py:262

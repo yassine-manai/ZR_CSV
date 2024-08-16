@@ -10,11 +10,10 @@ from dateutil.parser import parse, ParserError
 date_formats = ["%d-%m-%Y", "%d.%m.%Y", "%d:%m:%Y", "%Y-%m-%d", "%Y/%m/%d", "%d/%m/%Y"]
 
 
-class Company_validation(BaseModel):
-    
+class Company_validation(BaseModel):    
     # Mandatory fields
-    id: int
-    name: str
+    Company_id: int
+    Company_Name: str
     xValidUntil: str
 
     
